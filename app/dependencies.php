@@ -50,11 +50,11 @@ $container[App\Action\PresencesAction::class] = function ($c) {
 };
 
 $container[App\Action\AddPompierAction::class] = function ($c) {
-    return new App\Action\PompierAction($c->get('view'), $c->get('logger'));
+    return new App\Action\AddPompierAction($c->get('view'), $c->get('logger'));
 };
 
 $container[App\Action\DeletePompierAction::class] = function ($c) {
-    return new App\Action\PompierAction($c->get('view'), $c->get('logger'));
+    return new App\Action\DeletePompierAction($c->get('view'), $c->get('logger'));
 };
 
 $container[App\Action\HistoriqueAction::class] = function ($c) {
