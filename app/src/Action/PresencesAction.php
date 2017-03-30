@@ -22,7 +22,7 @@ final class PresencesAction
         $this->logger->info("Home page action dispatched");
 
         
-        $this->view->render($response, 'home.twig');
+        $this->view->render($response, 'presences.twig');
         return $response;
     }
 }

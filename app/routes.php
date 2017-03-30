@@ -3,7 +3,7 @@
 
 $app->get('/', App\Action\HomeAction::class);
 
-$app->get('/presence', App\Action\PresencesAction::class);
+$app->get('/presences', App\Action\PresencesAction::class);
 
 $app->get('/addPompier', App\Action\AddPompierAction::class);
 

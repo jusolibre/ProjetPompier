@@ -21,7 +21,7 @@ final class AddPompierAction
     {
         $this->logger->info("Home page action dispatched");
 
-        $this->view->render($response, 'home.twig');
+        $this->view->render($response, 'addPompier.twig');
 
         return $response;
     }

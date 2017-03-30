@@ -21,7 +21,7 @@ final class DeletePompierAction
     {
         $this->logger->info("Home page action dispatched");
 
-        $this->view->render($response, 'home.twig');
+        $this->view->render($response, 'deletePompier.twig');
 
         return $response;
     }
