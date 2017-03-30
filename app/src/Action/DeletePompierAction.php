@@ -6,15 +6,13 @@ use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-final class HomeAction
+final class DeletePompierAction
 {
     private $view;
     private $logger;
-    private $container;
 
-    public function __construct(Twig $view, LoggerInterface $logger, $c)
+    public function __construct(Twig $view, LoggerInterface $logger)
     {
-        $this->container = $c;
         $this->view = $view;
         $this->logger = $logger;
     }
@@ -22,11 +20,10 @@ final class HomeAction
     public function __invoke(Request $request, Response $response, $args)
     {
         $this->logger->info("Home page action dispatched");
-        echo "<pre>";
-        var_dump($this->container);
-        echo "</pre>";
-        
+
         $this->view->render($response, 'home.twig');
+
         return $response;
     }
+
 }
