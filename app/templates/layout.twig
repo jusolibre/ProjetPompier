@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <meta charset="utf-8" />
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" />
-	   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	  <script
-	     src="https://code.jquery.com/jquery-3.2.1.min.js"
-	     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	     crossorigin="anonymous"></script>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
-	  <title>{% block title %}{% endblock %}</title>
-	  <style>
-	    body {
-	    background-color: #EEEEEE;
-	    }
-	  </style>
-	</head>
-	<body>
-	  <div class="container">
-	    <div class="row">
-	      <div>
-		<ul id="slide-out" class="side-nav fixed">
-		  <li><a class="waves-effect" href="/"><i class="material-icons">dashboard</i>Acceuil</a></li>
-		  <li><div class="divider"></div></li>
-		  <li><a class="waves-effect" href="/presences"><i class="material-icons">perm_contact_calendar</i>Présences</a></li>
-		  <li><a class="waves-effect" href="/addPompier"><i class="material-icons">perm_identity</i>Ajouter / Modifier un Pompier</a></li>
-		  <li><a class="waves-effect" href="/deletePompier"><i class="material-icons">delete</i>Supprimer un Pompier</a></li>
-		  <li><div class="divider"></div></li>
-		  <li><a class="waves-effect" href="/historique"><i class="material-icons">message</i>Historique</a></li>
-		</ul>
-		  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a
-	      </div>
-	      <div class="card">
-		<div class="card-content">
-		  {% block content %}{% endblock %}
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<title>{% block title %}{% endblock %}</title>
+	<style>
+		body {
+			background-color: #EEEEEE;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div>
+				<ul id="slide-out" class="side-nav fixed">
+					<li><a class="waves-effect" href="/"><i class="material-icons">dashboard</i>Accueil</a></li>
+					<li><div class="divider"></div></li>
+					<li><a class="waves-effect" href="/presences"><i class="material-icons">perm_contact_calendar</i>Présences</a></li>
+					<li><a class="waves-effect" href="/addPompier"><i class="material-icons">perm_identity</i>Ajouter / Modifier/Ajouter un pompier</a></li>
+					<li><a class="waves-effect" href="/deletePompier"><i class="material-icons">delete</i>Supprimer un Pompier</a></li>
+					<li><div class="divider"></div></li>
+					<li><a class="waves-effect" href="/historique"><i class="material-icons">message</i>Historique</a></li>
+				</ul>
+				<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+			</div>
+			<div class="card">
+				<div class="card-content">
+					{% block content %}{% endblock %}
+				</div>
+			</div>
 		</div>
-	      </div>
-	    </div>
-	  </div>
-	  <script>
-	    $(".button-collapse").sideNav();
-	  </script>
-	</body>
+	</div>
+	<script>
+		$(".button-collapse").sideNav();
+	</script>
+	<script
+	src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+</body>
 </html>
