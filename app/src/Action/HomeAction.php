@@ -22,10 +22,17 @@ final class HomeAction
     public function __invoke(Request $request, Response $response, $args)
     {
         $this->logger->info("Home page action dispatched");
+        
+        $data = $this->container[\App\Model\Requester::class]->selectAll();
         echo "<pre>";
-        var_dump($this->container);
+        var_dump($data);
+        echo "</pre>";
+        $data = $this->container[\App\Model\Requester::class]();
+        echo "<pre>";
+        var_dump($data);
         echo "</pre>";
         
+
         $this->view->render($response, 'home.twig');
         return $response;
     }

@@ -60,3 +60,17 @@ $container[App\Action\DeletePompierAction::class] = function ($c) {
 $container[App\Action\HistoriqueAction::class] = function ($c) {
     return new App\Action\HistoriqueAction($c->get('view'), $c->get('logger'));
 };
+
+$container["PDO"] = function ($c) {
+    $dsn = 'mysql:dbname=pompier;host=127.0.0.1';
+    $user = 'root';
+    $password = 'root';
+    $pdo = new \PDO($dsn, $user, $password);
+    
+    return $pdo;
+};
+
+$container[App\Model\Requester::class] = function ($c) {
+    $pdo = $c["PDO"];
+    return new App\Model\Requester($pdo);
+};
