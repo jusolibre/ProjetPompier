@@ -19,9 +19,6 @@ final class HistoriqueAction
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $this->logger->info("Home page action dispatched");
-
-        
         $this->view->render($response, 'historique.twig');
         return $response;
     }

@@ -19,8 +19,6 @@ final class DeletePompierAction
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $this->logger->info("Home page action dispatched");
-
         $this->view->render($response, 'deletePompier.twig');
 
         return $response;
