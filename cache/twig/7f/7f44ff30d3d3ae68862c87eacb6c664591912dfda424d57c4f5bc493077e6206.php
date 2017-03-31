@@ -28,7 +28,7 @@ class __TwigTemplate_e34045e3614b691b75a745a41e3fcaba3daf7a18a58ebd7612826315d2e
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        echo " addPompier ";
+        echo " Ajouter un pompier ";
     }
 
     // line 4
@@ -58,7 +58,7 @@ class __TwigTemplate_e34045e3614b691b75a745a41e3fcaba3daf7a18a58ebd7612826315d2e
     {
         return new Twig_Source("{% extends \"layout.twig\" %}
 
-{% block title %} addPompier {% endblock%}
+{% block title %} Ajouter un pompier {% endblock %}
 {% block content %}
    <p> AddPompier </p>
 {% endblock %}", "addPompier.twig", "/home/bootlinux35/Desktop/Pompier/API/app/templates/addPompier.twig");
