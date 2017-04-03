@@ -2,12 +2,19 @@
 
 {% block title %} Historique {% endblock %}
 {% block content %}
+<style type="text/css">
+	
+table.historique>tbody>tr:nth-child(2n+1) {
+    background-color: #f2f2f2;
+}
+	
+</style>
 <div class="center-align">
    <h5> Historique </h5>	
 </div>
 
 
-   <table class="col s12">
+   <table class="col s12 historique">
    	<thead>
    		<tr>
    			<th class="center-align">Noms</th>

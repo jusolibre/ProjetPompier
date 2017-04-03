@@ -1,6 +1,153 @@
 {% extends "layout.twig" %}
 
-{% block title %} Ajouter un pompier {% endblock %}
+{% block title %} addPompier {% endblock%}
 {% block content %}
-   <p> AddPompier </p>
+<style>
+
+
+.rTable {
+  	display: block;
+  	width: 100%;
+}
+.rTableHeading, .rTableBody, .rTableFoot, .rTableRow{
+  	clear: both;
+}
+.rTableHead, .rTableFoot{
+  	background-color: #DDD;
+  	font-weight: bold;
+}
+.rTableCell, .rTableHead {
+  	border: 1px solid #999999;
+  	float: left;
+  	height: 37px;
+  	overflow: hidden;
+  	padding: 3px 1.8%;
+  	width: 20%;
+}
+.rTable:after {
+  	visibility: hidden;
+  	display: block;
+  	font-size: 0;
+  	content: " ";
+  	clear: both;
+  	height: 0;
+}
+.titre{
+	width: 70%;
+}
+
+
+</style>
+
+<h4>Liste des présences</h4>
+<div class="rTable">
+	<div class="rTableRow">
+		<div class="rTableHead"><strong>Noms</strong></div>
+		<div class="rTableHead titre"><span style="font-weight: bold;">Noms des compétences</span></div>
+	</div>
+	<div class="rTableRow">
+		<div class="rTableHead"><strong></strong></div>
+		<div class="rTableHead titre"><span style="font-weight: bold;">AA B CC D FF MM</span></div>
+	</div>
+	<div class="rTableRow">
+		<div class="rTableCell">Clément</div>
+			<div class="rTableCell titre">
+	      	<input type="checkbox" id="cbox1a" value="checkbox"><label for="cbox1a" style="margin-left: 20px;">
+			</label>
+			<input type="checkbox" id="cbox2a" value="checkbox"><label for="cbox2a">
+			</label>
+			<input type="checkbox" id="cbox3a" value="checkbox"><label for="cbox3a">
+			</label>
+			<input type="checkbox" id="cbox4a" value="checkbox"><label for="cbox4a">
+			</label>
+			<input type="checkbox" id="cbox5a" value="checkbox"><label for="cbox5a">
+			</label>
+			<input type="checkbox" id="cbox6a" value="checkbox"><label for="cbox6a">
+			</label>
+			<input type="checkbox" id="cbox7a" value="checkbox"><label for="cbox7a">
+			</label>
+			<input type="checkbox" id="cbox8a" value="checkbox"><label for="cbox8a">
+			</label>
+			<input type="checkbox" id="cbox9a" value="checkbox"><label for="cbox9a">
+			</label>
+			<input type="checkbox" id="cbox10a" value="checkbox"><label for="cbox10a">
+			</label>
+			<input type="checkbox" id="cbox11a" value="checkbox"><label for="cbox11a">
+			</label>
+			<input type="checkbox" id="cbox12a" value="checkbox"><label for="cbox12a">
+			</label>
+			<input type="checkbox" id="cbox13a" value="checkbox"><label for="cbox13a">
+			</label>
+			<button style="margin-left: 15px;top: -5.5px;position: relative;">Modif</button>
+			<button class="btn-medium red" style="margin-left: 15px;top: -5.5px;position: relative;" >Suppr</button>
+			</div>
+		</div>
+		<div class="rTableRow">
+			<div class="rTableCell">Julien</div>
+			<div class="rTableCell titre">
+	      	<input type="checkbox" id="cbox1b" value="checkbox"><label for="cbox1b" style="margin-left: 20px;">
+			</label>
+			<input type="checkbox" id="cbox2b" value="checkbox"><label for="cbox2b">
+			</label>
+			<input type="checkbox" id="cbox3b" value="checkbox"><label for="cbox3b">
+			</label>
+			<input type="checkbox" id="cbox4b" value="checkbox"><label for="cbox4b">
+			</label>
+			<input type="checkbox" id="cbox5b" value="checkbox"><label for="cbox5b">
+			</label>
+			<input type="checkbox" id="cbox6b" value="checkbox"><label for="cbox6b">
+			</label>
+			<input type="checkbox" id="cbox7b" value="checkbox"><label for="cbox7b">
+			</label>
+			<input type="checkbox" id="cbox8b" value="checkbox"><label for="cbox8b">
+			</label>
+			<input type="checkbox" id="cbox9b" value="checkbox"><label for="cbox9b">
+			</label>
+			<input type="checkbox" id="cbox10b" value="checkbox"><label for="cbox10b">
+			</label>
+			<input type="checkbox" id="cbox11b" value="checkbox"><label for="cbox11b">
+			</label>
+			<input type="checkbox" id="cbox12b" value="checkbox"><label for="cbox12b">
+			</label>
+			<input type="checkbox" id="cbox13b" value="checkbox"><label for="cbox13b">
+			</label>
+			<button style="margin-left: 15px;top: -5.5px;position: relative;">Modif</button>
+			<button class="btn-medium red" style="margin-left: 15px;top: -5.5px;position: relative;" >Suppr</button>
+			</div>
+
+		</div>
+		<div class="rTableRow">
+			<div class="rTableCell">Cédric</div>
+			<div class="rTableCell titre valign">
+	      	<input type="checkbox" id="cbox1a1" value="checkbox"><label for="cbox1a1" style="margin-left: 20px;">
+			</label>
+			<input type="checkbox" id="cbox2a1" value="checkbox"><label for="cbox2a1">
+			</label>
+			<input type="checkbox" id="cbox3a1" value="checkbox"><label for="cbox3a1">
+			</label>
+			<input type="checkbox" id="cbox4a1" value="checkbox"><label for="cbox4a1">
+			</label>
+			<input type="checkbox" id="cbox5a1" value="checkbox"><label for="cbox5a1">
+			</label>
+			<input type="checkbox" id="cbox6a1" value="checkbox"><label for="cbox6a1">
+			</label>
+			<input type="checkbox" id="cbox7a1" value="checkbox"><label for="cbox7a1">
+			</label>
+			<input type="checkbox" id="cbox8a1" value="checkbox"><label for="cbox8a1">
+			</label>
+			<input type="checkbox" id="cbox9a1" value="checkbox"><label for="cbox9a1">
+			</label>
+			<input type="checkbox" id="cbox10a1" value="checkbox"><label for="cbox10a1">
+			</label>
+			<input type="checkbox" id="cbox11a1" value="checkbox"><label for="cbox11a1">
+			</label>
+			<input type="checkbox" id="cbox12a1" value="checkbox"><label for="cbox12a1">
+			</label>
+			<input type="checkbox" id="cbox13a1" value="checkbox"><label for="cbox13a1">
+			</label>
+			<button style="margin-left: 15px;top: -5.5px;position: relative;">Modif</button>
+			<button class="btn-medium red" style="margin-left: 15px;top: -5.5px;position: relative;">Suppr</button></div>
+			</div>
+		</div>
+</div>
 {% endblock %}

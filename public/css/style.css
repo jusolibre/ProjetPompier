@@ -16,6 +16,6 @@ h1 {
     font-weight: 200;
     margin-bottom: 0;
 }
-table.striped > tbody > tr:nth-child(2n+1) {
+table.historique>tbody>tr:nth-child(2n+1) {
     background-color: #f2f2f2;
 }
