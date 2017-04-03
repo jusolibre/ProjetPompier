@@ -25,3 +25,16 @@ table.historique>tbody>tr:nth-child(2n+1) {
     border-bottom: 1px solid grey;
     padding-bottom: 3%;
 }
+.tableNoms{
+    width: 15%;
+}
+.titleNoms{
+    width: 15%;
+    padding-left: 5%;
+}
+#ajoutTitle{
+    margin-top: 3%;
+}
+h4{
+    text-align: center;
+}
