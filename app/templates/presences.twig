@@ -2,5 +2,92 @@
 
 {% block title %} Présences {% endblock %}
 {% block content %}
-   <p> présence </p>
+    <style>
+        .rTable {
+  	        display: block;
+  	        width: 100%;
+        }
+        .rTableHeading, .rTableBody, .rTableFoot, .rTableRow{
+            clear: both;
+        }
+        .rTableHead, .rTableFoot{
+            background-color: #DDD;
+            font-weight: bold;
+        }
+        .rTableCell, .rTableHead {
+            border: 1px solid #999999;
+            float: left;
+            height:30px;
+            overflow: hidden;
+            padding: 3px 1.8%;
+            text-align: center;
+            width: 60%;
+        }
+        .rTableCell2, .rTableHead2 {
+            border: 1px solid #999999;
+            float: left;
+            height:30px;
+            overflow: hidden;
+            padding: 3px 1.8%;
+            width: 7%;
+        }
+        .rTable:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
+    </style>
+    <div class="col s8 offset-s1">
+        <div class="row">
+            <div class="rTable">
+                <div class="rTableRow">
+                    <div class="rTableHead">Nom\Matricule</div>
+                    <div class="rTableHead2">P</div>
+                    <div class="rTableHead2">I</div>
+                    <div class="rTableHead2">FI</div>
+                </div>
+                <div class="rTableRow">
+                    <div class="rTableCell">John LePompier</div>
+                    <div class="rTableCell2">
+                        <input type="checkbox" id="test" />
+                        <label for="test">Red</label>
+                    </div>
+                    <div class="rTableCell2">
+                        <input type="checkbox" id="test1" />
+                        <label for="test1">Red</label>
+                    </div>
+                    <div class="rTableCell2">
+                        <input type="checkbox" id="test2" />
+                        <label for="test2">Red</label>
+                    </div>
+                </div>
+                <div class="rTableRow">
+                    <div class="rTableCell">Cassie LePompier</div>
+                    <div class="rTableCell2">
+                        <input type="checkbox" id="test3" />
+                        <label for="test3">Red</label>
+                    </div>
+                    <div class="rTableCell2">
+                        <input type="checkbox" id="test4" />
+                        <label for="test4">Red</label>
+                    </div>
+                    <div class="rTableCell2">
+                        <input type="checkbox" id="test5" />
+                        <label for="test5">Red</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s3">
+        <div class="row">
+            <div><p>Légende:</p></div>
+            <div> <span style="color: #008800;">P : Pompier présent</span></div>
+            <div> <span style="color: #ff0000">I : Pompier en cours d'intervention</span></div>
+            <span style="color: #c0C0C0">FI : Fin d'intervention du pompier</span> 
+        </div>
+    </div>
 {% endblock %}
