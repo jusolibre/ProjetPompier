@@ -18,17 +18,17 @@ final class Requester
 
     public function __invoke()
     {        
-        return($this->pdo);
+        return $this->pdo;
     }
 
     public function test() {
-        return ("test");
+        return "test";
     }
 
     public function selectAll() {
         $query = $this->pdo->query("SELECT * FROM pompier");
         $data = $query->fetchAll();
-        return ($data);
+        return $data;
     }
 
     public function updateSkill($matricule, $skillName, $skillValue) {
