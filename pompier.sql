@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 31, 2017 at 02:20 PM
+-- Generation Time: Apr 03, 2017 at 04:07 PM
 -- Server version: 5.7.17-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -23,6 +23,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `historique`
+--
+
+CREATE TABLE `historique` (
+  `id` int(11) NOT NULL,
+  `nom` text NOT NULL,
+  `matricule` text NOT NULL,
+  `date_presence` date NOT NULL,
+  `date_intervention` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pompier`
 --
 
@@ -35,21 +49,28 @@ CREATE TABLE `pompier` (
   `compétence2` tinyint(1) NOT NULL,
   `compétence3` tinyint(1) NOT NULL,
   `compétence4` tinyint(1) NOT NULL,
-  `compétence5` tinyint(1) NOT NULL
+  `compétence5` tinyint(1) NOT NULL,
+  `disponibilite` int(11) NOT NULL DEFAULT '-1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `pompier`
 --
 
-INSERT INTO `pompier` (`id`, `nom`, `prenom`, `matricule`, `compétence1`, `compétence2`, `compétence3`, `compétence4`, `compétence5`) VALUES
-(1, 'Jean', 'Jacques', 'ABCDEF12345', 0, 0, 1, 1, 1),
-(2, 'nom', 'prenom', 'ABCDEF12345', 1, 1, 0, 0, 0),
-(3, 'ecran', 'cassé', 'ABCDEF12345', 0, 1, 0, 1, 0);
+INSERT INTO `pompier` (`id`, `nom`, `prenom`, `matricule`, `compétence1`, `compétence2`, `compétence3`, `compétence4`, `compétence5`, `disponibilite`) VALUES
+(1, 'Jean', 'Jacques', 'ABCDEF12345', 0, 0, 1, 1, 1, -1),
+(2, 'nom', 'prenom', 'ABCDEF12345', 1, 1, 0, 0, 0, -1),
+(3, 'ecran', 'cassé', 'ABCDEF12345', 0, 1, 0, 1, 0, -1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `historique`
+--
+ALTER TABLE `historique`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pompier`
@@ -61,6 +82,11 @@ ALTER TABLE `pompier`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `historique`
+--
+ALTER TABLE `historique`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `pompier`
 --
