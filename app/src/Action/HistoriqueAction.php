@@ -20,7 +20,7 @@ final class HistoriqueAction
     public function __invoke(Request $request, Response $response, $args)
     {
         $this->view->render($response, 'historique.twig', array(
-            "root" => ROOT
+            "root" => WEBROOT
         ));
         return $response;
     }
