@@ -19,7 +19,9 @@ final class DeletePompierAction
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $this->view->render($response, 'deletePompier.twig');
+        $this->view->render($response, 'deletePompier.twig', array(
+            "root" => ROOT
+        ));
 
         return $response;
     }

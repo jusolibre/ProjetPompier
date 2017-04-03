@@ -33,7 +33,9 @@ final class HomeAction
         echo "</pre>";
         
 
-        $this->view->render($response, 'home.twig');
+        $this->view->render($response, 'home.twig', array(
+            "root" => ROOT
+        ));
         return $response;
     }
 }

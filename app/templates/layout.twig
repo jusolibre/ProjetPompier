@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" />
-	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" 
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{{ root }}/css/style.css" />
 		<title>{% block title %}{% endblock %}</title>
 
 	 <style>
@@ -33,8 +34,10 @@
 					</ul>
 		  			<!-- <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a> -->
 	      		</div>
-	      		
-      			<div class="card col s10 offset-s1">
+			</div>
+
+			<div class="row">
+				<div class="card col s12 offset-s2">
 					<div class="card-content">
 	  					{% block content %}{% endblock %}
 					</div>
@@ -43,6 +46,6 @@
 	  	</div>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	   	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
-	    <script $(".button-collapse").sideNav();</script>
+	    <script> $(".button-collapse").sideNav();</script>
 	</body>
 </html>
