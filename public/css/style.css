@@ -3,7 +3,7 @@ body {
     padding: 0;
     width: 100%;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-align: center;
+    /*text-align: center;*/
     color: #aaa;
     font-size: 18px;
 }
@@ -16,10 +16,60 @@ h1 {
     font-weight: 200;
     margin-bottom: 0;
 }
+
 table.historique>tbody>tr:nth-child(2n+1) {
     background-color: #f2f2f2;
 }
-#historiqueTitle{
+
+#historiqueTitle {
     border-bottom: 1px solid grey;
     padding-bottom: 3%;
+}
+
+.rTable {
+    display: block;
+    width: 100%;
+}
+
+.rTableHeading,
+.rTableBody,
+.rTableFoot,
+.rTableRow {
+    clear: both;
+}
+
+.rTableHead,
+.rTableFoot {
+    background-color: #DDD;
+    font-weight: bold;
+}
+
+.rTableCell,
+.rTableHead {
+    border: 1px solid #999999;
+    float: left;
+    height: 30px;
+    overflow: hidden;
+    padding: 3px 1.8%;
+    text-align: center;
+    width: 60%;
+}
+
+.rTableCell2,
+.rTableHead2 {
+    border: 1px solid #999999;
+    float: left;
+    height: 30px;
+    overflow: hidden;
+    padding: 3px 1.8%;
+    width: 7%;
+}
+
+.rTable:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 }
