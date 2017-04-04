@@ -1,4 +1,4 @@
-$("#addButton").on('click', function(e) {
+$("#addButton").on('click', function(e) { // ajouter un pompier
     e.preventDefault();
     var com = {};
     var nom = $("#ajoutNom").val();
@@ -9,17 +9,18 @@ $("#addButton").on('click', function(e) {
             com[compet] = true;
         });
         com["nom"] = nom;
-        // Plus tard quand les routes POST seront faites. ;)
-        //sendAjax("POST", "addPompier", JSON.stringify(com));
+        sendAjax("POST", "addPompier", JSON.stringify(com), function(response) {
+            console.log(response);
+        });
     }
-})
+});
 
-function sendAjax(method, url, data) {
+function sendAjax(method, url, data, callback) {
     $.ajax({
         url: url,
         method: method,
         data: data
     }).done(function(response) {
-        console.log(response);
+        callback(response);
     });
 }
