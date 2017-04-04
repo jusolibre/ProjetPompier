@@ -1,4 +1,5 @@
-$("#addButton").on('click', function() {
+$("#addButton").on('click', function(e) {
+    e.preventDefault();
     var com = {};
     var nom = $("#ajoutNom").val();
     if (nom != undefined) { // la personne a défini un nom donc on continue
