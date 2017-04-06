@@ -85,23 +85,23 @@ final class Requester
 
         if (isset($data["competence1"])) {
             $request_part1 = $request_part1 . ", competence1";
-            $request_part1 = $request_part1 . ", :competence1";
+            $request_part2 = $request_part2 . ", :competence1";
         }
         if (isset($data["competence2"])) {
             $request_part1 = $request_part1 . ", competence2";
-            $request_part1 = $request_part1 . ", :competence2";
+            $request_part2 = $request_part2 . ", :competence2";
         }
         if (isset($data["competence3"])) {
             $request_part1 = $request_part1 . ", competence3";
-            $request_part1 = $request_part1 . ", :competence3";
+            $request_part2 = $request_part2 . ", :competence3";
         }
         if (isset($data["competence4"])) {
             $request_part1 = $request_part1 . ", competence4";
-            $request_part1 = $request_part1 . ", :competence4";
+            $request_part2 = $request_part2 . ", :competence4";
         }
         if (isset($data["competence5"])) {
             $request_part1 = $request_part1 . ", competence5";
-            $request_part1 = $request_part1 . ", :competence5";
+            $request_part2 = $request_part2 . ", :competence5";
         }
         $request = $request_part1 . $request_part2 . $request_part3;
         $query = $this->pdo->prepare($request);

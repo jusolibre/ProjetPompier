@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 03, 2017 at 04:07 PM
+-- Generation Time: Apr 06, 2017 at 10:46 AM
 -- Server version: 5.7.17-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -45,11 +45,11 @@ CREATE TABLE `pompier` (
   `nom` text NOT NULL,
   `prenom` text NOT NULL,
   `matricule` text NOT NULL,
-  `compétence1` tinyint(1) NOT NULL,
-  `compétence2` tinyint(1) NOT NULL,
-  `compétence3` tinyint(1) NOT NULL,
-  `compétence4` tinyint(1) NOT NULL,
-  `compétence5` tinyint(1) NOT NULL,
+  `competence1` tinyint(1) DEFAULT '0',
+  `competence2` tinyint(1) DEFAULT '0',
+  `competence3` tinyint(1) NOT NULL DEFAULT '0',
+  `competence4` tinyint(1) NOT NULL DEFAULT '0',
+  `competence5` tinyint(1) NOT NULL DEFAULT '0',
   `disponibilite` int(11) NOT NULL DEFAULT '-1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -57,10 +57,11 @@ CREATE TABLE `pompier` (
 -- Dumping data for table `pompier`
 --
 
-INSERT INTO `pompier` (`id`, `nom`, `prenom`, `matricule`, `compétence1`, `compétence2`, `compétence3`, `compétence4`, `compétence5`, `disponibilite`) VALUES
-(1, 'Jean', 'Jacques', 'ABCDEF12345', 0, 0, 1, 1, 1, -1),
-(2, 'nom', 'prenom', 'ABCDEF12345', 1, 1, 0, 0, 0, -1),
-(3, 'ecran', 'cassé', 'ABCDEF12345', 0, 1, 0, 1, 0, -1);
+INSERT INTO `pompier` (`id`, `nom`, `prenom`, `matricule`, `competence1`, `competence2`, `competence3`, `competence4`, `competence5`, `disponibilite`) VALUES
+(1, 'Jean', 'Jacques', 'ABCDEF12345', 0, 1, 1, 0, 1, -1),
+(2, 'nom', 'prenom', 'ABCDEF123456', 1, 0, 1, 0, 1, -1),
+(3, 'ecran', 'cassé', 'ABCDEF1234567', 1, 1, 1, 0, 1, -1),
+(4, 'sansmajuscule', 'prenom', '01234567890', 0, 0, 0, 0, 0, -1);
 
 --
 -- Indexes for dumped tables
@@ -91,7 +92,7 @@ ALTER TABLE `historique`
 -- AUTO_INCREMENT for table `pompier`
 --
 ALTER TABLE `pompier`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
