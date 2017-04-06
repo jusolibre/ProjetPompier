@@ -26,7 +26,6 @@ final class ModPompierAction
             $ret = $this->controller[\App\Model\Requester::class]->selectPompierFromName($data["nom"], $data["prenom"]);
             $matricule = $ret["matricule"];
             $ret = $this->controller[\App\Model\Requester::class]->updatePompier($matricule, $data);
-            var_dump($data);
         }
     }
 

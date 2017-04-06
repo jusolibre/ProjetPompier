@@ -21,11 +21,6 @@ final class Requester
         return $this->pdo;
     }
 
-    public function test() {
-        echo "test";
-        return "test";
-    }
-
     public function selectAll() {
         $query = $this->pdo->query("SELECT * FROM pompier");
         $data = $query->fetchAll();
@@ -80,9 +75,6 @@ final class Requester
             $query->bindParam(':competence4', $data["competence4"]);
         if (isset($data["competence5"]))
             $query->bindParam(':competence5', $data["competence5"]);
-        var_dump($data);
-        var_dump($query);
-        echo "=>$matricule<=";
         $query->execute();
     }
 

@@ -21,7 +21,6 @@ final class AddPompierAction
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        echo "==== start  test ===<br>";
         $data = $request->getParsedBody();
         if (isset($data["prenom"]) && isset($data["nom"]) && isset($data["matricule"])) {
             $ret = $this->controller[\App\Model\Requester::class]->addPompier($data);
