@@ -124,5 +124,6 @@ final class Requester
             $query->bindParam(':competence5', $data["competence5"]);
         }
         $ret = $query->execute();
+        return print $ret == false ? json_encode(["error" => true, "message" => "fail"]) : json_encode(["error" => false, "message" => "ok"]);
     }
 }

@@ -44,7 +44,7 @@ $container['logger'] = function ($c) {
 $container["PDO"] = function ($c) {
     $dsn = 'mysql:dbname=pompier;host=127.0.0.1';
     $user = 'root';
-    $password = 'root';
+    $password = '';
     $pdo = new \PDO($dsn, $user, $password);
 
     return $pdo;
