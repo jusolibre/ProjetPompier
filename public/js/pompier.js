@@ -18,7 +18,7 @@ $("#addButton").on('click', function(e) { // ajouter un pompier
         com["prenom"] = prenom;
         com["matricule"] = matricule;
         sendAjax("POST", "addPompier", JSON.stringify(com), function(response) { // envoit des informations & récupération de la réponse par callback
-            console.log(response);
+            Materialize.toast((response.message == "ok" ? "Pompier a bien été ajouté!" : "Problème"), 4000);
         });
     }
 });
@@ -29,6 +29,6 @@ function sendAjax(method, url, data = null, callback) { // POurquoi data null ? 
         method: method,
         data: data
     }).done(function(response) {
-        callback(response);
+        callback(JSON.parse(response));
     });
 }
