@@ -41,6 +41,15 @@ $container['logger'] = function ($c) {
 // Action factories
 // -----------------------------------------------------------------------------
 
+$container["PDO"] = function ($c) {
+    $dsn = 'mysql:dbname=pompier;host=127.0.0.1';
+    $user = 'root';
+    $password = 'root';
+    $pdo = new \PDO($dsn, $user, $password);
+
+    return $pdo;
+};
+
 $container[App\Action\HomeAction::class] = function ($c) {
     return new App\Action\HomeAction($c->get('view'), $c->get('logger'), $c);
 };
@@ -50,7 +59,7 @@ $container[App\Action\PresencesAction::class] = function ($c) {
 };
 
 $container[App\Action\AddPompierAction::class] = function ($c) {
-    return new App\Action\AddPompierAction($c->get('view'), $c->get('logger'));
+    return new App\Action\AddPompierAction($c->get('view'), $c->get('logger'), $c);
 };
 
 $container[App\Action\DeletePompierAction::class] = function ($c) {
@@ -61,16 +70,15 @@ $container[App\Action\HistoriqueAction::class] = function ($c) {
     return new App\Action\HistoriqueAction($c->get('view'), $c->get('logger'));
 };
 
-$container["PDO"] = function ($c) {
-    $dsn = 'mysql:dbname=pompier;host=127.0.0.1';
-    $user = 'root';
-    $password = '';
-    $pdo = new \PDO($dsn, $user, $password);
-    
-    return $pdo;
-};
-
 $container[App\Model\Requester::class] = function ($c) {
     $pdo = $c["PDO"];
     return new App\Model\Requester($pdo);
+};
+
+$container[App\Model\AddPompierAction::class] = function ($c) {
+    return new App\Model\AddPompierAction($c->get('view'), $c->get('logger'), $c);
+};
+
+$container[App\Model\ModPompierAction::class] = function ($c) {
+    return new App\Model\ModPompierAction($c->get('view'), $c->get('logger'), $c);
 };

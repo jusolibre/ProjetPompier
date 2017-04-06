@@ -22,6 +22,7 @@ final class Requester
     }
 
     public function test() {
+        echo "test";
         return "test";
     }
 
@@ -31,13 +32,58 @@ final class Requester
         return $data;
     }
 
-    public function updateSkill($matricule, $skillName, $skillValue) {
-        $request = "UPDATE pompier SET " . $skillName . "= :skill WHERE matricule = :matricule";
+    public function selectPompierFromName($nom, $prenom) {
+        $query = $this->pdo->prepare("SELECT * FROM pompier WHERE nom = :nom && prenom = :prenom");
+        $query->bindParam(":nom", $nom);
+        $query->bindParam(":prenom", $prenom);
+        $query->execute();
+        $data = $query->fetch();
+        return $data;
+    }
+
+    public function updatePompier($matricule, $data) {
+        $request_part1 = "UPDATE pompier SET ";
+        $request_part2 = " WHERE matricule = :matricule";
+        $i = 0;
         
+        if (isset($data["competence1"])) {
+            $request_part1 = $request_part1 . (($i == 0) ? "" : ", ") . "competence1 = :competence1";
+            $i++;
+        }
+        if (isset($data["competence2"])) {
+            $request_part1 = $request_part1 . (($i == 0) ? "" : ", ") . "competence2 = :competence2";
+            $i++;
+        }
+        if (isset($data["competence3"])) {
+            $request_part1 = $request_part1 . (($i == 0) ? "" : ", ") . "competence3 = :competence3";
+            $i++;
+        }
+        if (isset($data["competence4"])) {
+            $request_part1 = $request_part1 . (($i == 0) ? "" : ", ") . "competence4 = :competence4";
+            $i++;
+        }
+        if (isset($data["competence5"])) {
+            $request_part1 = $request_part1 . (($i == 0) ? "" : ", ") . "competence5 = :competence5";
+            $i++;
+        }
+        
+        $request = $request_part1 . $request_part2;
         $query = $this->pdo->prepare($request);
-        $query->bindParam(':skill', $skillValue);
         $query->bindParam(':matricule', $matricule);
-        $data = $query->execute();
+        if (isset($data["competence1"]))
+            $query->bindParam(':competence1', $data["competence1"]);
+        if (isset($data["competence2"]))
+            $query->bindParam(':competence2', $data["competence2"]);
+        if (isset($data["competence3"]))
+            $query->bindParam(':competence3', $data["competence3"]);
+        if (isset($data["competence4"]))
+            $query->bindParam(':competence4', $data["competence4"]);
+        if (isset($data["competence5"]))
+            $query->bindParam(':competence5', $data["competence5"]);
+        var_dump($data);
+        var_dump($query);
+        echo "=>$matricule<=";
+        $query->execute();
     }
 
     public function addPompier($data) {
@@ -67,8 +113,9 @@ final class Requester
         }
         $request = $request_part1 . $request_part2 . $request_part3;
         $query = $this->pdo->prepare($request);
-        $query->bindParam(':skill', $skillValue);
-        $query->bindParam(':matricule', $matricule);
+        $query->bindParam(':nom', $data["nom"]);
+        $query->bindParam(':prenom', $data["prenom"]);
+        $query->bindParam(':matricule', $data["matricule"]);
         if (isset($data["competence1"])) {
             $query->bindParam(':competence1', $data["competence1"]);
         }        
@@ -83,7 +130,7 @@ final class Requester
         }        
         if (isset($data["competence5"])) {
             $query->bindParam(':competence5', $data["competence5"]);
-        }        
-        $data = $query->execute();
+        }
+        $ret = $query->execute();
     }
 }
