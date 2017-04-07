@@ -11,6 +11,8 @@ $app->get('/deletePompier', App\Action\DeletePompierAction::class);
 
 $app->get('/historique', App\Action\HistoriqueAction::class);
 
+$app->get('/getallpompier', App\Model\GetPompierModel::class);
+
 $app->post('/addPompier', App\Model\AddPompierAction::class);
 
 $app->post('/modPompier', App\Model\ModPompierAction::class);

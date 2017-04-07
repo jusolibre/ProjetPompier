@@ -1,3 +1,11 @@
+var loca = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+
+switch (loca) {
+    case "addPompier":
+        loadPompier();
+        break;
+}
+
 $("#addButton").on('click', function(e) { // ajouter un pompier
     e.preventDefault();
     var com = {};
@@ -29,6 +37,21 @@ function sendAjax(method, url, data = null, callback) { // POurquoi data null ? 
         method: method,
         data: data
     }).done(function(response) {
-        callback(JSON.parse(response));
+        if (typeof response == "object") {
+            callback(JSON.parse(response));
+        } else {
+            callback(response);
+        }
+    });
+}
+
+function doCheck(competence) {
+    var check = '<td><input type="checkbox" id="cbox' + competence + 'a1" value="checkbox"><label for="cbox' + competence + 'a1" ></label></td>';
+    return check;
+}
+
+function loadPompier() {
+    sendAjax("GET", "getallpompier", "", function(response) {
+        console.log(response);
     });
 }
