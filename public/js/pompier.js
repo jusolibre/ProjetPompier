@@ -31,17 +31,29 @@ $("#addButton").on('click', function(e) { // ajouter un pompier
     }
 });
 
+$("#supprimer").on('click', function(e) {
+    e.preventDefault();
+    var data = {};
+    var nom = $("#nom").text();
+    var prenom = $("#prenom").text();
+    if ((nom != "") && (prenom != "")) {
+        data = {
+            nom: nom,
+            prenom: prenom
+        }
+        sendAjax("POST", "deletePompier", JSON.stringify(data), function(response) {
+            Materialize.toast((response.message == "ok" ? "Pompier a bien été supprimé!" : "Impossible de supprimer un pompier qui n'existe pas."), 4000);
+        });
+    }
+});
+
 function sendAjax(method, url, data = null, callback) { // POurquoi data null ? Si on fait un rêquete GET, il y a pas forcément d'args!
     $.ajax({
         url: url,
         method: method,
         data: data
     }).done(function(response) {
-        if (typeof response == "object") {
-            callback(JSON.parse(response));
-        } else {
-            callback(response);
-        }
+        callback(JSON.parse(response));
     });
 }
 

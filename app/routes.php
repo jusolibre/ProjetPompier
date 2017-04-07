@@ -16,3 +16,5 @@ $app->get('/getallpompier', App\Model\GetPompierModel::class);
 $app->post('/addPompier', App\Model\AddPompierAction::class);
 
 $app->post('/modPompier', App\Model\ModPompierAction::class);
+
+$app->post('/deletePompier', App\Model\DeletePompierModel::class);

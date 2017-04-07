@@ -86,3 +86,7 @@ $container[App\Model\ModPompierAction::class] = function ($c) {
 $container[App\Model\GetPompierModel::class] = function ($c) {
     return new App\Model\GetPompierModel($c->get('view'), $c->get('logger'), $c);
 };
+
+$container[App\Model\DeletePompierModel::class] = function ($c) {
+    return new App\Model\DeletePompierModel($c->get('view'), $c->get('logger'), $c);
+};

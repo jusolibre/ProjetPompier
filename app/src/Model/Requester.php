@@ -36,6 +36,27 @@ final class Requester
         return $data;
     }
 
+    public function deletePompier($nom, $prenom) {
+        $search = $this->selectPompierFromName($nom, $prenom);
+        if (!is_array($search)) {
+            return print json_encode([
+                "error" => true,
+                "message" => "fail"
+            ]);
+        }
+        $query = $this->pdo->prepare("DELETE FROM pompier where nom = :nom and prenom = :prenom");
+        $query->bindParam(":nom", $nom);
+        $query->bindParam(":prenom", $prenom);
+        $ret = $query->execute();
+        return print $ret == false ? json_encode([
+            "error" => true,
+            "message" => "fail"
+        ]) : json_encode([
+            "error" => false,
+            "message" => "ok"
+        ]);
+    }
+
     public function updatePompier($matricule, $data) {
         $request_part1 = "UPDATE pompier SET ";
         $request_part2 = " WHERE matricule = :matricule";
