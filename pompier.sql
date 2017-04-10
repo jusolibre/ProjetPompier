@@ -32,6 +32,7 @@ CREATE TABLE `historique` (
   `matricule` text NOT NULL,
   `date_presence` date NOT NULL,
   `date_intervention` date NOT NULL
+  `date_fin_intervention` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
