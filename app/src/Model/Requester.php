@@ -27,6 +27,32 @@ final class Requester
         return $data;
     }
 
+    public function getAllRooms() {
+        $query = $this->pdo->query("SELECT * FROM rooms");
+        $data = $query->fetchAll();
+        return $data;
+    }
+
+    public function getAllIntervention() {
+        $query = $this->pdo->query("SELECT * FROM intervention");
+        $data = $query->fetchAll();
+        return $data;
+    }
+
+    public function getAllHistory() {
+        $query = $this->pdo->query("SELECT * FROM historique");
+        $data = $query->fetchAll();
+        return $data;
+    }
+
+    public function selectPompierByMatricule($matricule) {
+        $query = $this->pdo->prepare("SELECT * FROM pompier WHERE matricule = :matricule");
+        $query->bindParam(":matricule", $matricule);
+        $query->execute();
+        $data = $query->fetch();
+        return $data;
+    }
+
     public function selectPompierFromName($nom, $prenom) {
         $query = $this->pdo->prepare("SELECT * FROM pompier WHERE nom = :nom && prenom = :prenom");
         $query->bindParam(":nom", $nom);
@@ -125,4 +151,97 @@ final class Requester
         }
         $ret = $query->execute();
     }
+
+    public function addRoom($nom, $places, $vehicule) {
+        $request = "INSERT INTO rooms(nom_inter, vehicule, nombre_requis) VALUES(:nom_inter, :vehicule, :nombre_requis)";
+
+        $query = $this->pdo->prepare($request);
+        $query->bindParam(':nom_inter', $nom);
+        $query->bindParam(':nombre_requis', $places);
+        $query->bindParam(':vehicule', $vehicule);
+        $ret = $query->execute();
+    }
+
+    public function deletePompier($id) {
+        $request = "DELETE FROM pompier where id = :id";
+
+        $query = $this->pdo->prepare($request);
+        $query->bindParam(':id', $id);
+        $ret = $query->execute();
+    }
+
+    public function insertHistory($pompier, $intervention) {
+        if ($pompier["date_presence"] != NULL)
+            $request = "INSERT INTO historique(nom, prenom, matricule, date_presence, date_intervention, date_reponse) VALUES(:nom, :prenom, :matricule, :date_presence, :date_intervention, :date_reponse)";
+        else
+            $request = "INSERT INTO historique(nom, prenom, matricule, date_intervention, date_reponse) VALUES(:nom, :prenom, :matricule, :date_intervention, :date_reponse)";
+
+        $query = $this->pdo->prepare($request);
+        $query->bindParam(':nom', $pompier["nom"]);
+        $query->bindParam(':prenom', $pompier["prenom"]);
+        $query->bindParam(':matricule', $pompier["matricule"]);
+        if ($pompier["date_presence"] != NULL)
+            $query->bindParam(':date_presence', $pompier["date_presence"]);
+        $query->bindParam(':date_intervention', $intervention["heure_depard"]);
+        $query->bindParam(':date_reponse', $pompier["date_reponse"]);
+        $ret = $query->execute();
+    }
+        
+    public function selectRoom($id) {
+        $request = "SELECT * FROM rooms where id = :id";
+
+        $query = $this->pdo->prepare($request);
+        $query->bindParam(':id', $id);
+        $query->execute();
+        $data = $query->fetch();
+        return $data;
+    }
+    
+    public function setHistory($id) {
+
+        $query = $this->pdo->prepare("SELECT * FROM intervention WHERE id_intervention = :id_intervention");
+        $query->bindParam(':id_intervention', $id);
+        $query->execute();
+        $data = $query->fetchAll();
+
+        $inter = $this->selectRoom($id);
+
+        
+        foreach ($data as $element) {
+            echo "inter => ";
+            var_dump($inter);
+            $this->insertHistory($element, $inter);
+        }
+        
+        return $data;
+    }
+
+    public function deleteRoom($id) {
+        $request = "DELETE FROM rooms where id = :id";
+
+        $this->setHistory($id);
+        $query = $this->pdo->prepare($request);
+        $query->bindParam(':id', $id);
+        $ret = $query->execute();
+    }
+    
+    public function joinRoom($matricule, $id_intervention) {
+        $request = "INSERT INTO intervention(id_pompier, matricule, id_intervention, nom, prenom) VALUES(:id_pompier, :matricule, :id_intervention, :nom, :prenom)";
+
+        $data = $this->selectPompierByMatricule($matricule);
+        $query = $this->pdo->prepare($request);
+        $query->bindParam(':id_pompier', $data["id"]);
+        $query->bindParam(':matricule', $matricule);
+        $query->bindParam(':id_intervention', $id_intervention);
+        if (isset($data) && isset($data["nom"]))
+            $query->bindParam(':nom', $data["nom"]);
+        else
+            $query->bindParam(':nom', "nom");
+        if (isset($data) && isset($data["prenom"]))
+            $query->bindParam(':prenom', $data["prenom"]);
+        else
+            $query->bindParam(':nom', "prenom");
+        $ret = $query->execute();
+    }
+
 }

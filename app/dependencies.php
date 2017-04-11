@@ -3,6 +3,8 @@
 
 $container = $app->getContainer();
 
+$container['rooms'] = [];
+    
 // -----------------------------------------------------------------------------
 // Service providers
 // -----------------------------------------------------------------------------
@@ -75,10 +77,22 @@ $container[App\Model\Requester::class] = function ($c) {
     return new App\Model\Requester($pdo);
 };
 
-$container[App\Model\AddPompierAction::class] = function ($c) {
-    return new App\Model\AddPompierAction($c->get('view'), $c->get('logger'), $c);
+$container[App\Model\AddPompierModel::class] = function ($c) {
+    return new App\Model\AddPompierModel($c->get('view'), $c->get('logger'), $c);
 };
 
-$container[App\Model\ModPompierAction::class] = function ($c) {
-    return new App\Model\ModPompierAction($c->get('view'), $c->get('logger'), $c);
+$container[App\Model\ModPompierModel::class] = function ($c) {
+    return new App\Model\ModPompierModel($c->get('view'), $c->get('logger'), $c);
+};
+
+$container[App\Api\CreateRoomApi::class] = function ($c) {
+    return new App\Api\CreateRoomApi($c->get('view'), $c->get('logger'), $c);
+};
+
+$container[App\Api\DeleteRoomApi::class] = function ($c) {
+    return new App\Api\DeleteRoomApi($c->get('view'), $c->get('logger'), $c);
+};
+
+$container[App\Api\JoinRoomApi::class] = function ($c) {
+    return new App\Api\JoinRoomApi($c->get('view'), $c->get('logger'), $c);
 };

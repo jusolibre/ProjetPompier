@@ -1,5 +1,5 @@
 <?php
-namespace App\Action;
+namespace App\Model;
 
 use Slim\Views\Twig;
 use Psr\Log\LoggerInterface;
@@ -21,11 +21,10 @@ final class AddPompierAction
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $this->view->render($response, 'addPompier.twig', array(
-            "root" => ROOT
-        ));
-
-        return $response;
+        $data = $request->getParsedBody();
+        if (isset($data["prenom"]) && isset($data["nom"]) && isset($data["matricule"])) {
+            $ret = $this->controller[\App\Model\Requester::class]->addPompier($data);
+        }
     }
 
 }
