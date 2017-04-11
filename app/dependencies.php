@@ -46,7 +46,7 @@ $container['logger'] = function ($c) {
 $container["PDO"] = function ($c) {
     $dsn = 'mysql:dbname=pompier;host=127.0.0.1';
     $user = 'root';
-    $password = 'root';
+    $password = '';
     $pdo = new \PDO($dsn, $user, $password);
 
     return $pdo;
@@ -95,4 +95,12 @@ $container[App\Api\DeleteRoomApi::class] = function ($c) {
 
 $container[App\Api\JoinRoomApi::class] = function ($c) {
     return new App\Api\JoinRoomApi($c->get('view'), $c->get('logger'), $c);
+};
+
+$container[App\Model\GetPompierModel::class] = function ($c) {
+    return new App\Model\GetPompierModel($c->get('view'), $c->get('logger'), $c);
+};
+
+$container[App\Model\DeletePompierModel::class] = function ($c) {
+    return new App\Model\DeletePompierModel($c->get('view'), $c->get('logger'), $c);
 };

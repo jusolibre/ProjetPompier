@@ -20,3 +20,7 @@ $app->post('/createRoom', App\Api\CreateRoomApi::class);
 $app->post('/deleteRoom', App\Api\DeleteRoomApi::class);
 
 $app->post('/joinRoom', App\Api\JoinRoomApi::class);
+
+$app->get('/getallpompier', App\Model\GetPompierModel::class);
+
+$app->post('/deletePompier', App\Model\DeletePompierModel::class);

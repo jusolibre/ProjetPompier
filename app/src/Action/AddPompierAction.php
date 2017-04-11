@@ -22,7 +22,7 @@ final class AddPompierAction
     public function __invoke(Request $request, Response $response, $args)
     {
         $this->view->render($response, 'addPompier.twig', array(
-            "root" => ROOT
+            "root" => WEBROOT
         ));
 
         return $response;

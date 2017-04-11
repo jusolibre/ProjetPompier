@@ -6,7 +6,7 @@ use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-final class AddPompierAction
+final class DeletePompierModel
 {
     private $view;
     private $logger;
@@ -23,8 +23,8 @@ final class AddPompierAction
     {
         $data = $request->getBody();
         $json = json_decode($data, true);
-        if ((isset($json['prenom'])) && (isset($json['nom'])) && (isset($json['matricule']))) {
-            $ret = $this->controller[\App\Model\Requester::class]->addPompier($json);
+        if ((isset($json["nom"]) && (isset($json["prenom"])))) {
+            $action = $this->controller[\App\Model\Requester::class]->deletePompier($json["nom"], $json["prenom"]);
         }
     }
 }

@@ -3,7 +3,7 @@
 {% block title %} Ajout/modif pompier {% endblock %}
 {% block content %}
 <h4>Modifier un pompier</h4>
-<form>
+<div style="overflow-x:auto;">
 	<table class="striped">
 		<thead>
 			<tr>
@@ -24,9 +24,9 @@
 				<th style="padding-left: 2%;">Supprimer</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id="pompier">
 			<tr>
-				<td class="tableNoms">Clément</td>
+				<td class="tableNoms"><span id="prenom">Clement</span> <span id="nom">ZZZZ</span></td>
 				<td><input type="checkbox" id="cbox1a1" value="checkbox"><label for="cbox1a1" >
 				</label></td>
 				<td><input type="checkbox" id="cbox2a1" value="checkbox"><label for="cbox2a1">
@@ -51,11 +51,11 @@
 				</label></td>
 				<td><input type="checkbox" id="cbox12a1" value="checkbox"><label for="cbox12a1">
 				</label></td>
-				<td><button class="waves-effect waves-light btn">Modif</button></td>
-				<td><button class="waves-effect red darken-1 btn" >Suppr</button></td>
+				<td><button id="modifier" class="waves-effect waves-light btn">Modif</button></td>
+				<td><button id="supprimer" class="waves-effect red darken-1 btn" >Suppr</button></td>
 			</tr>
 			<tr>
-				<td class="tableNoms">Julien</td>
+				<td class="tableNoms"><span id="prenom">Julien</span> <span id="nom">ZZZZZ</span></td>
 				<td><input type="checkbox" id="cbox1a2" value="checkbox"><label for="cbox1a2">
 				</label></td>
 				<td><input type="checkbox" id="cbox2a2" value="checkbox"><label for="cbox2a2">
@@ -80,11 +80,11 @@
 				</label></td>
 				<td><input type="checkbox" id="cbox12a2" value="checkbox"><label for="cbox12a2">
 				</label></td>
-				<td><button class="waves-effect waves-light btn">Modif</button></td>
-				<td><button class="waves-effect red darken-1 btn" >Suppr</button></td>
+				<td><button id="modifier" class="waves-effect waves-light btn">Modif</button></td>
+				<td><button id="supprimer" class="waves-effect red darken-1 btn" >Suppr</button></td>
 			</tr>
 			<tr>
-				<td class="tableNoms">Cédric</td>
+				<td class="tableNoms"><span id="prenom">Cedric</span> <span id="nom">ZZZZ</span></td>
 				<td><input type="checkbox" id="cbox1a3" value="checkbox"><label for="cbox1a3">
 				</label></td>
 				<td><input type="checkbox" id="cbox2a3" value="checkbox"><label for="cbox2a3">
@@ -109,51 +109,53 @@
 				</label></td>
 				<td><input type="checkbox" id="cbox12a3" value="checkbox"><label for="cbox12a3">
 				</label></td>
-				<td><button class="waves-effect waves-light btn">Modif</button></td>
-				<td><button class="waves-effect red darken-1 btn" >Suppr</button></td>
+				<td><button id="modifier" class="waves-effect waves-light btn">Modif</button></td>
+				<td><button id="supprimer" class="waves-effect red darken-1 btn" >Suppr</button></td>
 			</tr>
 		</tbody>
 	</table>
-</form>
+</div>
 <div id="ajoutPompier">
 	<h4 id="ajoutTitle">Ajouter un pompier</h4>
-	<table class="striped">				
-		<thead>
-			<tr>
-				<th class="titleNoms">Noms</th>
-				<th>C1</th>
-				<th>C2</th>
-				<th>C3</th>
-				<th>C4</th>
-				<th>C5</th>
-				<th>C6</th>
-				<th>C7</th>
-				<th>C8</th>
-				<th>C9</th>
-				<th>C10</th>
-				<th>C11</th>
-				<th>C12</th>
-				<th style="padding-left: 2%;">Ajouter</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="tableNoms col s12"><input placeholder="Nom pompier" id="ajoutNom" type="text" class="validate col s4 offset-s1"><input placeholder="Prénom pompier" id="ajoutPrenom" type="text" class="validate col s4 offset-s1"></td>
-				<td><input type="checkbox" id="cbox1b1" value="cbox1b1"><label for="cbox1b1" ></label></td>
-				<td><input type="checkbox" id="cbox2b1" value="cbox2b1"><label for="cbox2b1"></label></td>
-				<td><input type="checkbox" id="cbox3b1" value="cbox3b1"><label for="cbox3b1"></label></td>
-				<td><input type="checkbox" id="cbox4b1" value="cbox4b1"><label for="cbox4b1"></label></td>
-				<td><input type="checkbox" id="cbox5b1" value="cbox5b1"><label for="cbox5b1"></label></td>
-				<td><input type="checkbox" id="cbox6b1" value="cbox6b1"><label for="cbox6b1"></label></td>
-				<td><input type="checkbox" id="cbox7b1" value="cbox7b1"><label for="cbox7b1"></label></td>
-				<td><input type="checkbox" id="cbox8b1" value="cbox8b1"><label for="cbox8b1"></label></td>
-				<td><input type="checkbox" id="cbox9b1" value="cbox9b1"><label for="cbox9b1"></label></td>
-				<td><input type="checkbox" id="cbox10b1" value="cbox10b1"><label for="cbox10b1"></label></td>
-				<td><input type="checkbox" id="cbox11b1" value="cbox11b1"><label for="cbox11b1"></label></td>
-				<td><input type="checkbox" id="cbox12b1" value="cbox12b1"><label for="cbox12b1"></label></td>
-				<td><button class="waves-effect waves-light btn" id="addButton">Ajouter</button></td>
-			</tr>
-		</tbody>
-	</table>
+	<div style="overflow-x:auto;">
+		<table class="striped">				
+			<thead>
+				<tr>
+					<th class="titleNoms">Noms/Matricule</th>
+					<th>C1</th>
+					<th>C2</th>
+					<th>C3</th>
+					<th>C4</th>
+					<th>C5</th>
+					<th>C6</th>
+					<th>C7</th>
+					<th>C8</th>
+					<th>C9</th>
+					<th>C10</th>
+					<th>C11</th>
+					<th>C12</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tableNoms col s12"><input placeholder="Nom" id="ajoutNom" type="text" class="validate col s3"><input placeholder="Prénom" id="ajoutPrenom" type="text" class="validate col s3 offset-s1"><input placeholder="Matricule" id="ajoutMatricule" type="text" class="validate col s3 offset-s1"></td>
+					<td><input type="checkbox" id="cbox1b1" value="cbox1b1"><label for="cbox1b1" ></label></td>
+					<td><input type="checkbox" id="cbox2b1" value="cbox2b1"><label for="cbox2b1"></label></td>
+					<td><input type="checkbox" id="cbox3b1" value="cbox3b1"><label for="cbox3b1"></label></td>
+					<td><input type="checkbox" id="cbox4b1" value="cbox4b1"><label for="cbox4b1"></label></td>
+					<td><input type="checkbox" id="cbox5b1" value="cbox5b1"><label for="cbox5b1"></label></td>
+					<td><input type="checkbox" id="cbox6b1" value="cbox6b1"><label for="cbox6b1"></label></td>
+					<td><input type="checkbox" id="cbox7b1" value="cbox7b1"><label for="cbox7b1"></label></td>
+					<td><input type="checkbox" id="cbox8b1" value="cbox8b1"><label for="cbox8b1"></label></td>
+					<td><input type="checkbox" id="cbox9b1" value="cbox9b1"><label for="cbox9b1"></label></td>
+					<td><input type="checkbox" id="cbox10b1" value="cbox10b1"><label for="cbox10b1"></label></td>
+					<td><input type="checkbox" id="cbox11b1" value="cbox11b1"><label for="cbox11b1"></label></td>
+					<td><input type="checkbox" id="cbox12b1" value="cbox12b1"><label for="cbox12b1"></label></td>
+					<td><button class="waves-effect waves-light btn" id="addButton">Ajouter</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 {% endblock %}

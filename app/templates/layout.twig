@@ -2,21 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	    <link rel="stylesheet" href="css/materialize.min.css" />
 	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="{{ root }}css/style.css" />
 		<title>{% block title %}{% endblock %}</title>
-
-	 <style>
-	    body {
-	    	background-color: #EEEEEE;
-	    	height: 100%;
-	    }
-	    html{
-	    	
-	    	height: 100%;
-	    }
-	 </style>
 	</head>
 	<body>
 	    <div class="container">
@@ -26,7 +16,7 @@
 		  				<li><a class="waves-effect" href="/"><i class="material-icons">dashboard</i>Accueil</a></li>
 		  				<li><div class="divider"></div></li>
 		  				<li><a class="waves-effect" href="/presences"><i class="material-icons">perm_contact_calendar</i>Présences</a></li>
-		  				<li><a class="waves-effect" href="/addPompier"><i class="material-icons">perm_identity</i>Ajouter/Modifier un pompier</a></li>
+		  				<li><a class="waves-effect" href="/addPompier"><i class="material-icons">perm_identity</i>Ajouter/Modifier pompier</a></li>
 		  				<!-- <li><a class="waves-effect" href="/deletePompier"><i class="material-icons">delete</i>Supprimer un pompier</a></li> -->
 		  				<li><div class="divider"></div></li>
 		  				<li><a class="waves-effect" href="/historique"><i class="material-icons">message</i>Historique</a></li>
@@ -47,5 +37,6 @@
 	   	<script src="js/pompier.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 	    <script> $(".button-collapse").sideNav();</script>
+		<script> $('.tooltipped').tooltip({delay: 50}); </script>
 	</body>
 </html>

@@ -62,6 +62,27 @@ final class Requester
         return $data;
     }
 
+    public function deletePompier($nom, $prenom) {
+        $search = $this->selectPompierFromName($nom, $prenom);
+        if (!is_array($search)) {
+            return print json_encode([
+                "error" => true,
+                "message" => "fail"
+            ]);
+        }
+        $query = $this->pdo->prepare("DELETE FROM pompier where nom = :nom and prenom = :prenom");
+        $query->bindParam(":nom", $nom);
+        $query->bindParam(":prenom", $prenom);
+        $ret = $query->execute();
+        return print $ret == false ? json_encode([
+            "error" => true,
+            "message" => "fail"
+        ]) : json_encode([
+            "error" => false,
+            "message" => "ok"
+        ]);
+    }
+
     public function updatePompier($matricule, $data) {
         $request_part1 = "UPDATE pompier SET ";
         $request_part2 = " WHERE matricule = :matricule";
@@ -105,11 +126,12 @@ final class Requester
     }
 
     public function addPompier($data) {
+        $maxcompetence = 5;
         $request_part1 = "INSERT INTO pompier(matricule, nom, prenom";
         $request_part2 = ") VALUES(:matricule, :nom, :prenom";
         $request_part3 = ")";
 
-        if (isset($data["competence1"])) {
+        /*if (isset($data["competence1"])) {
             $request_part1 = $request_part1 . ", competence1";
             $request_part2 = $request_part2 . ", :competence1";
         }
@@ -128,13 +150,19 @@ final class Requester
         if (isset($data["competence5"])) {
             $request_part1 = $request_part1 . ", competence5";
             $request_part2 = $request_part2 . ", :competence5";
+        }*/
+        for ($i = 1; $i < ($maxcompetence + 1); $i++) {
+            if (isset($data["competence$i"])) {
+                $request_part1 = $request_part1 . ", competence$i";
+                $request_part2 = $request_part2 . ", :competence$i";
+            }
         }
         $request = $request_part1 . $request_part2 . $request_part3;
         $query = $this->pdo->prepare($request);
         $query->bindParam(':nom', $data["nom"]);
         $query->bindParam(':prenom', $data["prenom"]);
         $query->bindParam(':matricule', $data["matricule"]);
-        if (isset($data["competence1"])) {
+        /*if (isset($data["competence1"])) {
             $query->bindParam(':competence1', $data["competence1"]);
         }        
         if (isset($data["competence2"])) {
@@ -148,8 +176,14 @@ final class Requester
         }        
         if (isset($data["competence5"])) {
             $query->bindParam(':competence5', $data["competence5"]);
+        }*/
+        for ($i = 1; $i < ($maxcompetence + 1); $i++) {
+            if (isset($data["competence$i"])) {
+                $query->bindParam(":competence$i", $data["competence$i"]);
+            }
         }
         $ret = $query->execute();
+        return print $ret == false ? json_encode(["error" => true, "message" => "fail"]) : json_encode(["error" => false, "message" => "ok"]);
     }
 
     public function addRoom($nom, $places, $vehicule) {
