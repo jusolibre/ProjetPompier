@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 06, 2017 at 10:46 AM
+-- Generation Time: Apr 11, 2017 at 04:24 PM
 -- Server version: 5.7.17-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -29,10 +29,29 @@ SET time_zone = "+00:00";
 CREATE TABLE `historique` (
   `id` int(11) NOT NULL,
   `nom` text NOT NULL,
+  `prenom` text NOT NULL,
   `matricule` text NOT NULL,
-  `date_presence` date NOT NULL,
-  `date_intervention` date NOT NULL
-  `date_fin_intervention` date NOT NULL
+  `date_presence` datetime DEFAULT NULL,
+  `date_intervention` datetime NOT NULL,
+  `date_reponse` datetime NOT NULL,
+  `date_fin_dinter` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `intervention`
+--
+
+CREATE TABLE `intervention` (
+  `id` int(11) NOT NULL,
+  `id_pompier` int(11) NOT NULL,
+  `id_intervention` int(11) NOT NULL,
+  `matricule` text NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `date_reponse` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_presence` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -64,6 +83,20 @@ INSERT INTO `pompier` (`id`, `nom`, `prenom`, `matricule`, `competence1`, `compe
 (3, 'ecran', 'cassé', 'ABCDEF1234567', 1, 1, 1, 0, 1, -1),
 (4, 'sansmajuscule', 'prenom', '01234567890', 0, 0, 0, 0, 0, -1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `id` int(11) NOT NULL,
+  `nom_inter` text NOT NULL,
+  `heure_depard` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `vehicule` text NOT NULL,
+  `nombre_requis` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -75,10 +108,23 @@ ALTER TABLE `historique`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `intervention`
+--
+ALTER TABLE `intervention`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pompier`
 --
 ALTER TABLE `pompier`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -88,12 +134,22 @@ ALTER TABLE `pompier`
 -- AUTO_INCREMENT for table `historique`
 --
 ALTER TABLE `historique`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `intervention`
+--
+ALTER TABLE `intervention`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `pompier`
 --
 ALTER TABLE `pompier`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
