@@ -2,74 +2,108 @@
 
 {% block title %} Présences {% endblock %}
 {% block content %}
-    <div class="col s8">
-        <div class="row">
-            <table class="striped">
-                <thead>
-                    <tr>
-                        <th style="color: #010101;">Nom/Matricule</th>
-                        <th style="color: #010101;">P</th>
-                        <th style="color: #010101;">I</th>
-                        <th style="color: #010101;">FI</th>
-                    </tr>
-                    </thead>
+<div class="row">
+    <div class="col s12">
+        <form id="createRoom">
+            <div id="placeInter" class="col s4">
+                <span class="col s3">Nombre de places :</span>
+                <label for="placeRoom"></label>
+                <input type="text" name="placeRoom" id="placeRoom" placeholder="N° de places / inter" class="validate col s6">
+            </div>
+            <div class="input-field col s3">
+                <select>
+                    <option value="" disabled selected>Vehicule</option>
+                    <option value="1">Vsab1</option>
+                    <option value="2">Vsab2</option>
+                    <option value="3">camion echelle</option>
+                </select>
+               <!--  <label>vehicule</label> -->
+            </div>
+            <div class="col s4 offset-s1 valign-center">
+              <input type="submit" class="waves-effect waves-light btn" value="Créér inter">
+          </div>
 
-                    <tbody>
-                    <tr>
-                        <td style="color: #010101;">Alvin lePompier</td>
-                        <td>
-                            <input type="checkbox" id="test1" />
-                            <label for="test1"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test2" />
-                            <label for="test2"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test3" />
-                            <label for="test3"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="color: #010101;">Alvin lePompier</td>
-                        <td>
-                            <input type="checkbox" id="test4" />
-                            <label for="test4"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test5" />
-                            <label for="test5"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test6" />
-                            <label for="test6"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="color: #010101;">Alvin lePompier</td>
-                        <td>
-                            <input type="checkbox" id="test7" />
-                            <label for="test7"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test8" />
-                            <label for="test8"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test9" />
-                            <label for="test9"></label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+
+      </form>
+  </div>
+
+
+</div>
+
+<div class="col s8">
+
+
+
+
+
+  <div class="row">
+    <table class="striped">
+        <thead>
+            <tr>
+                <th style="color: #010101;">Nom/Matricule</th>
+                <th style="color: #010101;">P</th>
+                <th style="color: #010101;">I</th>
+                <th style="color: #010101;">FI</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td style="color: #010101;">Alvin lePompier</td>
+                <td>
+                    <input type="checkbox" id="test1" />
+                    <label for="test1"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="test2" />
+                    <label for="test2"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="test3" />
+                    <label for="test3"></label>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: #010101;">Alvin lePompier</td>
+                <td>
+                    <input type="checkbox" id="test4" />
+                    <label for="test4"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="test5" />
+                    <label for="test5"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="test6" />
+                    <label for="test6"></label>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: #010101;">Alvin lePompier</td>
+                <td>
+                    <input type="checkbox" id="test7" />
+                    <label for="test7"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="test8" />
+                    <label for="test8"></label>
+                </td>
+                <td>
+                    <input type="checkbox" id="test9" />
+                    <label for="test9"></label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<div class="col s3 offset-s1">
+    <div class="row" style="margin-top: 25%">
+        <div><p style="color: #010101;">Légende:</p></div>
+        <div> <span style="color: #008800;">P : Pompier présent</span></div>
+        <div> <span style="color: #ff0000">I : Pompier en cours d'intervention</span></div>
+        <span style="color: #c0C0C0">FI : Fin d'intervention du pompier</span> 
     </div>
-    <div class="col s3 offset-s1">
-        <div class="row" style="margin-top: 25%">
-            <div><p style="color: #010101;">Légende:</p></div>
-            <div> <span style="color: #008800;">P : Pompier présent</span></div>
-            <div> <span style="color: #ff0000">I : Pompier en cours d'intervention</span></div>
-            <span style="color: #c0C0C0">FI : Fin d'intervention du pompier</span> 
-        </div>
-    </div>
+</div>
+
 {% endblock %}
