@@ -21,9 +21,10 @@ final class JoinRoomApi
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $data = $request->getParsedBody();
-        if (isset($data["matricule"]) && isset($data["id_inter"])) {
-            $this->container["App\Model\Requester"]->joinRoom($data["matricule"], $data["id_inter"]);
+        $data = $request->getBody();
+        $json = json_decode($data, true);
+        if ((isset($json["matricule"])) && (isset($json["id_inter"]))) {
+            $this->container["App\Model\Requester"]->joinRoom($json["matricule"], $json["id_inter"]);
         }
         return $response;
     }

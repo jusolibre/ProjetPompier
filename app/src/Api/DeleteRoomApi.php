@@ -21,9 +21,10 @@ final class DeleteRoomApi
     
     public function __invoke(Request $request, Response $response, $args)
     {
-        $data = $request->getParsedBody();
-        if (isset($data) && isset($data["id_inter"])) {
-            $id = $data["id_inter"];
+        $data = $request->getBody();
+        $json = json_decode($data, true);
+        if (isset($json["id_inter"])) {
+            $id = $json["id_inter"];
             $this->container["App\Model\Requester"]->deleteRoom($id);
         }
         return $response;

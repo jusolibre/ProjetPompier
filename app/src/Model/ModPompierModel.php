@@ -21,11 +21,12 @@ final class ModPompierAction
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $data = $request->getParsedBody();
-        if (isset($data["prenom"]) && isset($data["nom"])) {
-            $ret = $this->controller[\App\Model\Requester::class]->selectPompierFromName($data["nom"], $data["prenom"]);
+        $data = $request->getBody();
+        $json = json_decode($data, true);
+        if ((isset($json["prenom"])) && (isset($json["nom"]))) {
+            $ret = $this->controller[\App\Model\Requester::class]->selectPompierFromName($json["nom"], $json["prenom"]);
             $matricule = $ret["matricule"];
-            $ret = $this->controller[\App\Model\Requester::class]->updatePompier($matricule, $data);
+            $ret = $this->controller[\App\Model\Requester::class]->updatePompier($matricule, $json);
         }
     }
 

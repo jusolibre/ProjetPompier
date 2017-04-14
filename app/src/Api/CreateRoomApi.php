@@ -22,11 +22,12 @@ final class CreateRoomApi
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        $data = $request->getParsedBody();
-        if (isset($data["nom"]) && isset($data['places']) && isset($data["vehicule"])) {
-            $nom = $data["nom"];
-            $places = $data["places"];
-            $vehicule = $data["vehicule"];
+        $data = $request->getBody();
+        $json = json_decode($data, true);
+        if ((isset($json["nom"])) && (isset($json["places"])) && (isset($json["vehicule"]))) {
+            $nom = $json["nom"];
+            $places = $json["places"];
+            $vehicule = $json["vehicule"];
             $this->container["App\Model\Requester"]->addRoom($nom, $places, $vehicule);
         }
         return $response;

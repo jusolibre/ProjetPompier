@@ -196,14 +196,6 @@ final class Requester
         $ret = $query->execute();
     }
 
-    public function deletePompier($id) {
-        $request = "DELETE FROM pompier where id = :id";
-
-        $query = $this->pdo->prepare($request);
-        $query->bindParam(':id', $id);
-        $ret = $query->execute();
-    }
-
     public function insertHistory($pompier, $intervention) {
         if ($pompier["date_presence"] != NULL)
             $request = "INSERT INTO historique(nom, prenom, matricule, date_presence, date_intervention, date_reponse) VALUES(:nom, :prenom, :matricule, :date_presence, :date_intervention, :date_reponse)";
