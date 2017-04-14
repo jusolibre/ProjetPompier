@@ -97,6 +97,10 @@ $container[App\Api\JoinRoomApi::class] = function ($c) {
     return new App\Api\JoinRoomApi($c->get('view'), $c->get('logger'), $c);
 };
 
+$container[App\Api\loginApi::class] = function ($c) {
+    return new App\Api\loginApi($c->get('view'), $c->get('logger'), $c);
+};
+
 $container[App\Model\GetPompierModel::class] = function ($c) {
     return new App\Model\GetPompierModel($c->get('view'), $c->get('logger'), $c);
 };

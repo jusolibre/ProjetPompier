@@ -62,6 +62,22 @@ final class Requester
         return $data;
     }
 
+    public function checkDetails($nom, $prenom, $matricule) {
+        $query = $this->pdo->prepare("SELECT * FROM pompier WHERE nom = :nom && prenom = :prenom && matricule = :matricule");
+        $query->bindParam(":nom", $nom);
+        $query->bindParam(":prenom", $prenom);
+        $query->bindParam(":matricule", $matricule);
+        $query->execute();
+        $data = $query->fetch();
+        return print !isset($data["nom"]) ? json_encode([
+            "error" => true,
+            "message" => "fail"
+        ]) : json_encode([
+            "error" => false,
+            "message" => "ok"
+        ]);
+    }
+
     public function deletePompier($nom, $prenom) {
         $search = $this->selectPompierFromName($nom, $prenom);
         if (!is_array($search)) {
@@ -251,14 +267,13 @@ final class Requester
         $ret = $query->execute();
     }
     
-    public function joinRoom($matricule, $id_intervention) {
-        $request = "INSERT INTO intervention(id_pompier, matricule, id_intervention, nom, prenom) VALUES(:id_pompier, :matricule, :id_intervention, :nom, :prenom)";
+    public function joinRoom($matricule) {
+        $request = "INSERT INTO intervention(id_pompier, matricule, nom, prenom) VALUES(:id_pompier, :matricule, :nom, :prenom)";
 
         $data = $this->selectPompierByMatricule($matricule);
         $query = $this->pdo->prepare($request);
         $query->bindParam(':id_pompier', $data["id"]);
         $query->bindParam(':matricule', $matricule);
-        $query->bindParam(':id_intervention', $id_intervention);
         if (isset($data) && isset($data["nom"]))
             $query->bindParam(':nom', $data["nom"]);
         else
