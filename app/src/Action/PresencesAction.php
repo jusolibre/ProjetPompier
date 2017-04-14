@@ -20,7 +20,8 @@ final class PresencesAction
     public function __invoke(Request $request, Response $response, $args)
     {
         $this->view->render($response, 'presences.twig', array(
-            "root" => WEBROOT
+            "root" => WEBROOT,
+            "presence" => true
         ));
         return $response;
     }

@@ -24,15 +24,20 @@
 		  			<!-- <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a> -->
 	      		</div>
 			</div>
-
+		{% if presence == true %}
 			<div class="row">
-				<div class="card col s12 offset-s2">
-					<div class="card-content">
-	  					{% block content %}{% endblock %}
-					</div>
-      			</div>
-			</div>
-	  	</div>
+				{% block content2 %} {% endblock %}
+	  		</div>
+		{% else %}
+			<div class="row">
+					<div class="card col s12 offset-s2">
+						<div class="card-content">
+	  						{% block content %} {% endblock %}
+						</div>
+      				</div>
+				</div>
+	  		</div>
+	  	{% endif %}
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		
 		
