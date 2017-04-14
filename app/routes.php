@@ -21,6 +21,8 @@ $app->post('/deleteRoom', App\Api\DeleteRoomApi::class);
 
 $app->post('/joinRoom', App\Api\JoinRoomApi::class);
 
+$app->post('/login', App\Api\loginApi::class);
+
 $app->get('/getallpompier', App\Model\GetPompierModel::class);
 
 $app->post('/deletePompier', App\Model\DeletePompierModel::class);

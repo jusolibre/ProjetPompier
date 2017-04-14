@@ -6,7 +6,7 @@ use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-final class JoinRoomApi
+final class loginApi
 {
     private $view;
     private $logger;
@@ -23,8 +23,8 @@ final class JoinRoomApi
     {
         $data = $request->getBody();
         $json = json_decode($data, true);
-        if (isset($json["matricule"])) {
-            $this->container["App\Model\Requester"]->joinRoom($json["matricule"]);
+        if (((isset($json["nom"])) && (isset($json["prenom"])) && (isset($json["matricule"])))) {
+            $this->container["App\Model\Requester"]->checkDetails($json["nom"], $json["prenom"], $json["matricule"]);
         }
         return $response;
     }
