@@ -5023,7 +5023,7 @@ small {
 .btn:focus,
 .btn-large:focus,
 .btn-floating:focus {
-    background-color: #1d7d74
+    background-color: #273E5E
 }
 
 .btn,
@@ -5771,7 +5771,7 @@ select:focus {
 
 button:focus {
     outline: none;
-    background-color: #2ab7a9
+    background-color: #273E5E
 }
 
 label {

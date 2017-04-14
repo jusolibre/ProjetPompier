@@ -29,7 +29,7 @@ $("#addButton").on('click', function(e) { // ajouter un pompier
             Materialize.toast((response.message == "ok" ? "Pompier a bien été ajouté!" : "Problème"), 4000);
         });
     } else {
-        Materialize.toast("Veuillez remplir tous les champs.", 4000);
+        Materialize.toast("Veuillez remplir tous les champs pour continuer.", 4000);
     }
 });
 
