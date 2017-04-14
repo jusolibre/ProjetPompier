@@ -28,6 +28,8 @@ $("#addButton").on('click', function(e) { // ajouter un pompier
         sendAjax("POST", "addPompier", JSON.stringify(com), function(response) { // envoit des informations & récupération de la réponse par callback
             Materialize.toast((response.message == "ok" ? "Pompier a bien été ajouté!" : "Problème"), 4000);
         });
+    } else {
+        Materialize.toast("Veuillez remplir tous les champs.", 4000);
     }
 });
 
