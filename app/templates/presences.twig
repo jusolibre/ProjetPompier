@@ -2,7 +2,8 @@
 
 {% block title %} Présences {% endblock %}
 {% block content2 %}
-<div class="card col s12 offset-s1">
+<div class="row">
+<div class="card col s10 offset-s2">
     <div class="card-content algn center">
         <div class="row valign-wrapper">
             <div class="col s12" id="creationInter">
@@ -19,99 +20,107 @@
                             <option value="2">Vsav1</option>
                             <option value="3">camion echelle</option>
                         </select>
-                        <!--  <label>vehicule</label> -->
                     </div>
                     <div class="col s4 offset-s1 valign-center">
                       <input type="submit" class="waves-effect waves-light btn" value="Envoi inter">
-                    </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
 
-
-                </form>
+<div class="row">
+<div class="card col s4 offset-s2">
+    <div class="card-content">
+        <div class="col s5">
+            <div class="row">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th style="color: #010101;">Noms</th>
+                            <th style="color: #010101;">P</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: #010101;">Alvin</td>
+                            <td>
+                                <input type="checkbox" id="presence1" />
+                                <label for="presence1"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: #010101;">Alvin</td>
+                            <td>
+                                <input type="checkbox" id="test4" />
+                                <label for="test4"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: #010101;">Alvin</td>
+                            <td>
+                                <input type="checkbox" id="test7" />
+                                <label for="test7"></label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-<div class="card col s12 offset-s1">
+<div class="card col s4 offset-s2">
     <div class="card-content">
-        <div class="col s8">
-
-
-
-
-          <div class="row">
-            <table class="striped">
-                <thead>
-                    <tr>
-                        <th style="color: #010101;">Nom/Matricule</th>
-                        <th style="color: #010101;">P</th>
-                        <th style="color: #010101;">I</th>
-                        <th style="color: #010101;">FI</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td style="color: #010101;">Alvin lePompier</td>
-                        <td>
-                            <input type="checkbox" id="test1" />
-                            <label for="test1"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test2" />
-                            <label for="test2"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test3" />
-                            <label for="test3"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="color: #010101;">Alvin lePompier</td>
-                        <td>
-                            <input type="checkbox" id="test4" />
-                            <label for="test4"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test5" />
-                            <label for="test5"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test6" />
-                            <label for="test6"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="color: #010101;">Alvin lePompier</td>
-                        <td>
-                            <input type="checkbox" id="test7" />
-                            <label for="test7"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test8" />
-                            <label for="test8"></label>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="test9" />
-                            <label for="test9"></label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="col s5">
+            <div class="row">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th style="color: #010101;">Noms</th>
+                            <th style="color: #010101;">P</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: #010101;">Alvin lePompier</td>
+                            <td>
+                                <input type="checkbox" id="presence1" />
+                                <label for="presence1"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: #010101;">Alvin lePompier</td>
+                            <td>
+                                <input type="checkbox" id="test4" />
+                                <label for="test4"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: #010101;">Alvin lePompier</td>
+                            <td>
+                                <input type="checkbox" id="test7" />
+                                <label for="test7"></label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <div class="col s3 offset-s1">
+</div>
+</div>
+
+
+   <!--  <div class="col s3 offset-s1">
         <div class="row" style="margin-top: 25%">
             <div><p style="color: #010101;">Légende:</p></div>
             <div> <span style="color: #008800;">P : Pompier présent</span></div>
             <div> <span style="color: #ff0000">I : Pompier en cours d'intervention</span></div>
             <span style="color: #c0C0C0">FI : Fin d'intervention du pompier</span> 
         </div>
-    </div>
-</div>
-</div>
+    </div> -->
+
+
 {% endblock %}
