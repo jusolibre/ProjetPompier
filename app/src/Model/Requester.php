@@ -28,13 +28,13 @@ final class Requester
     }
 
     public function getAllRooms() {
-        $query = $this->pdo->query("SELECT * FROM rooms");
+        $query = $this->pdo->query("SELECT * FROM intervention");
         $data = $query->fetchAll();
         return $data;
     }
 
     public function getAllIntervention() {
-        $query = $this->pdo->query("SELECT * FROM intervention");
+        $query = $this->pdo->query("SELECT * FROM presence");
         $data = $query->fetchAll();
         return $data;
     }
@@ -203,7 +203,7 @@ final class Requester
     }
 
     public function addRoom($nom, $places, $vehicule) {
-        $request = "INSERT INTO rooms(nom_inter, vehicule, nombre_requis) VALUES(:nom_inter, :vehicule, :nombre_requis)";
+        $request = "INSERT INTO intervention(nom_inter, vehicule, nombre_requis) VALUES(:nom_inter, :vehicule, :nombre_requis)";
 
         $query = $this->pdo->prepare($request);
         $query->bindParam(':nom_inter', $nom);
@@ -230,7 +230,7 @@ final class Requester
     }
         
     public function selectRoom($id) {
-        $request = "SELECT * FROM rooms where id = :id";
+        $request = "SELECT * FROM intervention where id = :id";
 
         $query = $this->pdo->prepare($request);
         $query->bindParam(':id', $id);
@@ -241,7 +241,7 @@ final class Requester
     
     public function setHistory($id) {
 
-        $query = $this->pdo->prepare("SELECT * FROM intervention WHERE id_intervention = :id_intervention");
+        $query = $this->pdo->prepare("SELECT * FROM presence WHERE id_intervention = :id_intervention");
         $query->bindParam(':id_intervention', $id);
         $query->execute();
         $data = $query->fetchAll();
@@ -259,7 +259,7 @@ final class Requester
     }
 
     public function deleteRoom($id) {
-        $request = "DELETE FROM rooms where id = :id";
+        $request = "DELETE FROM intervention where id = :id";
 
         $this->setHistory($id);
         $query = $this->pdo->prepare($request);
@@ -268,7 +268,7 @@ final class Requester
     }
     
     public function joinRoom($matricule) {
-        $request = "INSERT INTO intervention(id_pompier, matricule, nom, prenom) VALUES(:id_pompier, :matricule, :nom, :prenom)";
+        $request = "INSERT INTO presence(id_pompier, matricule, nom, prenom) VALUES(:id_pompier, :matricule, :nom, :prenom)";
 
         $data = $this->selectPompierByMatricule($matricule);
         $query = $this->pdo->prepare($request);
