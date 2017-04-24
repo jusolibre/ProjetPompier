@@ -5400,7 +5400,8 @@ button.btn-floating {
     font-style: normal;
     font-size: inherit;
     text-transform: inherit;
-    background: none
+    background: none;
+    line-height: 36px;
 }
 
 .waves-effect img {
