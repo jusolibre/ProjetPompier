@@ -10,17 +10,21 @@ final class HistoriqueAction
 {
     private $view;
     private $logger;
-
-    public function __construct(Twig $view, LoggerInterface $logger)
+    private $container;
+    
+    public function __construct(Twig $view, LoggerInterface $logger, $c)
     {
         $this->view = $view;
         $this->logger = $logger;
+        $this->container = $c;
     }
 
     public function __invoke(Request $request, Response $response, $args)
     {
+        $historique = $this->container[\App\Model\Requester::class]->getAllHistory();
         $this->view->render($response, 'historique.twig', array(
-            "root" => WEBROOT
+            "root" => WEBROOT,
+            "history" => $historique
         ));
         return $response;
     }

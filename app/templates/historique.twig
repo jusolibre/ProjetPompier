@@ -16,76 +16,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
-			<tr>
-				<td class="center-align">Alain Deloin</td>
-				<td class="center-align">13/03/17 à 13h30</td>
-				<td class="center-align">De 9h35 à 10h20</td>
-			</tr>
+			{% for entry in history %}
+				<tr>
+					<td class="center-align">{{ entry.nom }} {{ entry.prenom }}</td>
+					<td class="center-align"><p>{{ entry.date_presence }}</p> <p>la réponse a été envoyer a </p> <p>{{ entry.date_reponse }}</p></td>
+					<td class="center-align"><p>{{ entry.date_intervention }}</p> à <p>{{ entry.date_reponse }}</p></td>
+				</tr>
+			{% endfor %}
 		</tbody>
 	</table>
 </div>
