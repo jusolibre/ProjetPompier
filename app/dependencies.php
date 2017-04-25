@@ -46,7 +46,7 @@ $container['logger'] = function ($c) {
 $container["PDO"] = function ($c) {
     $dsn = 'mysql:dbname=pompier;host=127.0.0.1';
     $user = 'root';
-    $password = 'root';
+    $password = '';
     $pdo = new \PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
     return $pdo;
@@ -99,6 +99,10 @@ $container[App\Api\JoinRoomApi::class] = function ($c) {
 
 $container[App\Api\loginApi::class] = function ($c) {
     return new App\Api\loginApi($c->get('view'), $c->get('logger'), $c);
+};
+
+$container[App\Api\TokenApi::class] = function ($c) {
+    return new App\Api\TokenApi($c->get('view'), $c->get('logger'), $c);
 };
 
 $container[App\Model\GetPompierModel::class] = function ($c) {

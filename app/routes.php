@@ -23,6 +23,8 @@ $app->post('/joinRoom', App\Api\JoinRoomApi::class);
 
 $app->post('/login', App\Api\loginApi::class);
 
+$app->post('/token', App\Api\TokenApi::class);
+
 $app->get('/getallpompier', App\Model\GetPompierModel::class);
 
 $app->post('/deletePompier', App\Model\DeletePompierModel::class);

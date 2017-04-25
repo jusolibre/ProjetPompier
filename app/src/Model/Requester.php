@@ -20,6 +20,18 @@ final class Requester
     {        
         return $this->pdo;
     }
+	
+    public function saveToken($token) {
+		$query = $this->pdo->prepare("SELECT * FROM pompierstoken WHERE token = :token");
+		$query->bindParam(":token", $token);
+		$query->execute();
+		$result = $query->fetch();
+		if ($result == false) {
+			$insert = $this->pdo->prepare("INSERT into pompierstoken(token) VALUES(:token)");
+			$insert->bindParam(':token', $token);
+			$insert->execute();
+		}
+    }
 
     public function selectAll() {
         $query = $this->pdo->query("SELECT * FROM pompier");
