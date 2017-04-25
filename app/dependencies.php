@@ -46,8 +46,8 @@ $container['logger'] = function ($c) {
 $container["PDO"] = function ($c) {
     $dsn = 'mysql:dbname=pompier;host=127.0.0.1';
     $user = 'root';
-    $password = '';
-    $pdo = new \PDO($dsn, $user, $password);
+    $password = 'root';
+    $pdo = new \PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
     return $pdo;
 };
@@ -69,7 +69,7 @@ $container[App\Action\DeletePompierAction::class] = function ($c) {
 };
 
 $container[App\Action\HistoriqueAction::class] = function ($c) {
-    return new App\Action\HistoriqueAction($c->get('view'), $c->get('logger'));
+    return new App\Action\HistoriqueAction($c->get('view'), $c->get('logger'), $c);
 };
 
 $container[App\Model\Requester::class] = function ($c) {
