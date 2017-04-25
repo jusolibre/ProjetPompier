@@ -1,48 +1,37 @@
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Slim 3</title>
-        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-        <link href='{{ base_url() }}/css/style.css' rel='stylesheet' type='text/css'>
-        <style type="text/css">
-          h1{
+{% extends "layout.twig" %}
+
+{% block title %} home {% endblock %}
+{% block content %}
+<style type="text/css">
+          h2{
             text-align: center;
           }  
-          h2{
+          h4{
             margin-left: 400px;
             
           }
-          h2:first-letter{
+          h4:first-letter{
             color : red;
           }
-          h3{
+          h5{
             text-align: center;
           }
 
 
 
         </style>
-    </head>
-    <body>
-        <h1>Gestion pompiers</h1>
+
+        <h2>Gestion pompiers</h2>
         <div>
-        <h2>Pour les sacrifices qu'ils acceptent</h2>
-        <h2>Ou les risques qu'ils prennent</h2>
-        <h2>Même si les éléments se déchainent</h2>
-        <h2>Pros, militaires et volontaires</h2>
-        <h2>Ici ou là, par un altruisme exemplaire</h2>
-        <h2>Emploient et dépensent toutes leur énergie</h2>
-        <h2>Rien n'importe plus, pour eux, que la vie</h2>
-        <h2>Sincèrement pour tout cela</h2><br/>
-        <h3>Merci</h3>
-            
-
-
-
-
-
-
+            <h4>Pour les sacrifices qu'ils acceptent</h4>
+            <h4>Ou les risques qu'ils prennent</h4>
+            <h4>Même si les éléments se déchainent</h4>
+            <h4>Pros, militaires et volontaires</h4>
+            <h4>Ici ou là, par un altruisme exemplaire</h4>
+            <h4>Emploient et dépensent toutes leur énergie</h4>
+            <h4>Rien n'importe plus, pour eux, que la vie</h4>
+            <h4>Sincèrement pour tout cela</h4><br/>
+            <h5>Merci</h5>
         </div>
-    </body>
-</html>
+{% endblock %}
         

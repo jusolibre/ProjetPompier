@@ -56,6 +56,10 @@ $container[App\Action\HomeAction::class] = function ($c) {
     return new App\Action\HomeAction($c->get('view'), $c->get('logger'), $c);
 };
 
+$container[App\Action\VehiculesAction::class] = function ($c) {
+    return new App\Action\VehiculesAction($c->get('view'), $c->get('logger'), $c);
+};
+
 $container[App\Action\PresencesAction::class] = function ($c) {
     return new App\Action\PresencesAction($c->get('view'), $c->get('logger'));
 };
