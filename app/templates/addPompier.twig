@@ -20,16 +20,16 @@
 		<tbody id="pompier">
 		{% for entry in pompiers %}
 			<tr>
-				<td class="tableNoms"><span id="prenom">{{ entry.prenom }}</span> <span id="nom">{{ entry.nom }}</span></td>
-				<td><input type="checkbox" {% if entry.competence1 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox1a{{ entry.id }}" value="checkbox"><label for="cbox1a1" >
+				<td class="tableNoms"><span id="modifier{{ entry.id }}prenom">{{ entry.prenom }}</span> <span id="modifier{{ entry.id }}nom">{{ entry.nom }}</span></td>
+				<td><input type="checkbox" {% if entry.competence1 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox1a{{ entry.id }}" value="checkbox"><label for="cbox1a{{ entry.id }}" >
 				</label></td>
-				<td><input type="checkbox" {% if entry.competence2 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox2a{{ entry.id }}" value="checkbox"><label for="cbox2a1">
+				<td><input type="checkbox" {% if entry.competence2 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox2a{{ entry.id }}" value="checkbox"><label for="cbox2a{{ entry.id }}">
 				</label></td>
-				<td><input type="checkbox" {% if entry.competence3 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox3a{{ entry.id }}" value="checkbox"><label for="cbox3a1">
+				<td><input type="checkbox" {% if entry.competence3 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox3a{{ entry.id }}" value="checkbox"><label for="cbox3a{{ entry.id }}">
 				</label></td>
-				<td><input type="checkbox" {% if entry.competence4 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox4a{{ entry.id }}" value="checkbox"><label for="cbox4a1">
+				<td><input type="checkbox" {% if entry.competence4 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox4a{{ entry.id }}" value="checkbox"><label for="cbox4a{{ entry.id }}">
 				</label></td>
-				<td><input type="checkbox" {% if entry.competence5 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox5a{{ entry.id }}" value="checkbox"><label for="cbox5a1">
+				<td><input type="checkbox" {% if entry.competence5 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox5a{{ entry.id }}" value="checkbox"><label for="cbox5a{{ entry.id }}">
 				</label></td>
 				<td><button id="modifier{{ entry.id }}" test="{{ entry.id }}" class="modificator waves-effect waves-light btn">Modif</button></td>
 				<td><button id="supprimer{{ entry.id }}" class="waves-effect red darken-1 btn" >Suppr</button></td>

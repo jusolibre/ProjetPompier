@@ -6,7 +6,7 @@ use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-final class ModPompierAction
+final class ModPompierModel
 {
     private $view;
     private $logger;
@@ -25,6 +25,13 @@ final class ModPompierAction
         $json = json_decode($data, true);
         if ((isset($json["prenom"])) && (isset($json["nom"]))) {
             $ret = $this->controller[\App\Model\Requester::class]->selectPompierFromName($json["nom"], $json["prenom"]);
+            if ($ret == NULL) {
+                print json_encode([
+                    "error" => true,
+                    "message" => "get matricule error"
+                ]);
+                return ;
+            }
             $matricule = $ret["matricule"];
             $ret = $this->controller[\App\Model\Requester::class]->updatePompier($matricule, $json);
         }

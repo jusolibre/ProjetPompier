@@ -115,7 +115,7 @@ final class Requester
         $request_part1 = "UPDATE pompier SET ";
         $request_part2 = " WHERE matricule = :matricule";
         $i = 0;
-        
+
         if (isset($data["competence1"])) {
             $request_part1 = $request_part1 . (($i == 0) ? "" : ", ") . "competence1 = :competence1";
             $i++;
@@ -141,16 +141,20 @@ final class Requester
         $query = $this->pdo->prepare($request);
         $query->bindParam(':matricule', $matricule);
         if (isset($data["competence1"]))
-            $query->bindParam(':competence1', $data["competence1"]);
+            $query->bindParam(':competence1', $data["competence1"], \PDO::PARAM_INT);
         if (isset($data["competence2"]))
-            $query->bindParam(':competence2', $data["competence2"]);
+            $query->bindParam(':competence2', $data["competence2"], \PDO::PARAM_INT);
         if (isset($data["competence3"]))
-            $query->bindParam(':competence3', $data["competence3"]);
+            $query->bindParam(':competence3', $data["competence3"], \PDO::PARAM_INT);
         if (isset($data["competence4"]))
-            $query->bindParam(':competence4', $data["competence4"]);
+            $query->bindParam(':competence4', $data["competence4"], \PDO::PARAM_INT);
         if (isset($data["competence5"]))
-            $query->bindParam(':competence5', $data["competence5"]);
+            $query->bindParam(':competence5', $data["competence5"], \PDO::PARAM_INT);
         $query->execute();
+        print json_encode([
+            "error" => false,
+            "message" => "ok"
+        ]);
     }
 
     public function addPompier($data) {
@@ -159,26 +163,6 @@ final class Requester
         $request_part2 = ") VALUES(:matricule, :nom, :prenom";
         $request_part3 = ")";
 
-        /*if (isset($data["competence1"])) {
-            $request_part1 = $request_part1 . ", competence1";
-            $request_part2 = $request_part2 . ", :competence1";
-        }
-        if (isset($data["competence2"])) {
-            $request_part1 = $request_part1 . ", competence2";
-            $request_part2 = $request_part2 . ", :competence2";
-        }
-        if (isset($data["competence3"])) {
-            $request_part1 = $request_part1 . ", competence3";
-            $request_part2 = $request_part2 . ", :competence3";
-        }
-        if (isset($data["competence4"])) {
-            $request_part1 = $request_part1 . ", competence4";
-            $request_part2 = $request_part2 . ", :competence4";
-        }
-        if (isset($data["competence5"])) {
-            $request_part1 = $request_part1 . ", competence5";
-            $request_part2 = $request_part2 . ", :competence5";
-        }*/
         for ($i = 1; $i < ($maxcompetence + 1); $i++) {
             if (isset($data["competence$i"])) {
                 $request_part1 = $request_part1 . ", competence$i";
@@ -190,21 +174,6 @@ final class Requester
         $query->bindParam(':nom', $data["nom"]);
         $query->bindParam(':prenom', $data["prenom"]);
         $query->bindParam(':matricule', $data["matricule"]);
-        /*if (isset($data["competence1"])) {
-            $query->bindParam(':competence1', $data["competence1"]);
-        }        
-        if (isset($data["competence2"])) {
-            $query->bindParam(':competence2', $data["competence2"]);
-        }        
-        if (isset($data["competence3"])) {
-            $query->bindParam(':competence3', $data["competence3"]);
-        }        
-        if (isset($data["competence4"])) {
-            $query->bindParam(':competence4', $data["competence4"]);
-        }        
-        if (isset($data["competence5"])) {
-            $query->bindParam(':competence5', $data["competence5"]);
-        }*/
         for ($i = 1; $i < ($maxcompetence + 1); $i++) {
             if (isset($data["competence$i"])) {
                 $query->bindParam(":competence$i", $data["competence$i"]);

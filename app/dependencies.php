@@ -46,7 +46,7 @@ $container['logger'] = function ($c) {
 $container["PDO"] = function ($c) {
     $dsn = 'mysql:dbname=pompier;host=127.0.0.1';
     $user = 'root';
-    $password = '';
+    $password = 'root';
     $pdo = new \PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
     return $pdo;
