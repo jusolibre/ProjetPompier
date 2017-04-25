@@ -2,18 +2,19 @@
 
 {% block title %} Présences {% endblock %}
 {% block content2 %}
+
 <div class="row">
-    <div class="card col l10 offset-s2">
+    <div class="card col l10  s12 offset-l2">
         <div class="card-content algn center">
             <div class="row valign-wrapper">
                 <div class="col l12" id="creationInter">
                     <form id="createRoom">
-                        <div id="placeInter" class="col l4">
-                            <span class="col l3">Places :</span>
+                        <div id="placeInter" class="col l4 valign-wrapper right-align">
+                            <span class="col l3 valign-wrapper">Places :</span>
                             <label for="placeRoom"></label>
                             <input type="text" name="placeRoom" id="placeRoom" placeholder="N° de places / inter" class="validate col s6">
                         </div>
-                        <div class="input-field col l3">
+                        <div class="input-field col l3 ">
                             <select>
                                 <option value="" disabled selected>Vehicule</option>
                                 <option value="1">Vsab1</option>
@@ -21,7 +22,7 @@
                                 <option value="3">camion echelle</option>
                             </select>
                         </div>
-                        <div class="col l4 offset-s1 valign-center">
+                        <div class="col l4 offset-l1 valign-center">
                             <input type="submit" class="waves-effect waves-light btn" value="Envoi inter">
                         </div>
                     </form>
@@ -31,145 +32,43 @@
     </div>
 </div>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxx   card   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<div class="card col l5 offset-l2 ">
+<div class="card col l5  m12 s12 offset-l2 ">
     <div class="card-content">
-        <div class="col l4 offset-l1 valign-center">
+        <div class="col l4 s6 m4 offset-l1-m2 valign-center">
             <input type="button" class="waves-effect waves-light btn" value="Inter">
         </div>
-        <div class="col l4 offset-l1 valign-center">
+        <div class="col l4 s6 m4 offset-l1-m2 valign-center">
             <input type="button" class="waves-effect red btn" value="Fin inter">
         </div>
-        <div class="col l12">
+        <div class="col l12 m12 s12">
             <div class="row">
                 <table class="striped">
                     <thead>
                         <tr>
-                            <th style="color: #010101;">Noms</th>
-                            <th style="color: #010101;">P</th>
+                            <th >Noms</th>
+                            <th  class="floatRightP">P</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="color: #010101;">Alvin</td>
-                            <td>
+                            <td >Alvin</td>
+                            <td class="floatRight">
                                 <input type="checkbox" id="presence1" />
                                 <label for="presence1"></label>
                             </td>
                         </tr>
                         <tr>
-                            <td style="color: #010101;">Alvin zerfghui dfguijhgfdertyh</td>
-                            <td>
+                            <td >Alvin zerfg</td>
+                            <td class="floatRight">
                                 <input type="checkbox" id="test4" />
                                 <label for="test4"></label>
                             </td>
                         </tr>
                         <tr>
-                            <td style="color: #010101;">Alvin</td>
-                            <td>
-                                <input type="checkbox" id="test7" />
-                                <label for="test7"></label>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="card col l5 ">
-
-
-    <div class="card-content">
-     <div class="col l4 offset-l1 valign-center">
-        <input type="button" class="waves-effect waves-light btn" value="Inter">
-    </div>
-    <div class="col l4 offset-l1 valign-center">
-        <input type="button" class="waves-effect red btn" value="Fin inter">
-    </div>
-    <div class="col l12">
-        <div class="row">
-            <table class="striped">
-                <thead>
-                    <tr>
-                        <th style="color: #010101;">Noms</th>
-                        <th style="color: #010101;">P</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="color: #010101;">Alvin lePompier</td>
-                        <td>
-                            <input type="checkbox" id="presence1" />
-                            <label for="presence1"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="color: #010101;">Alvin lePompier</td>
-                        <td>
-                            <input type="checkbox" id="test4" />
-                            <label for="test4"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="color: #010101;">Alvin lePompier</td>
-                        <td>
-                            <input type="checkbox" id="test7" />
-                            <label for="test7"></label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-
-
-
-
-</div>
-</div>
-
-<div class="card col l5 offset-s2">
-    <div class="card-content">
-        <div class="col l4 offset-l1 valign-center">
-            <input type="button" class="waves-effect waves-light btn" value="Inter">
-        </div>
-        <div class="col l4 offset-l1 valign-center">
-            <input type="button" class="waves-effect red btn" value="Fin inter">
-        </div>
-        <div class="col l12">
-            <div class="row">
-                <table class="striped">
-                    <thead>
-                        <tr>
-                            <th style="color: #010101;">Noms</th>
-                            <th style="color: #010101;">P</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="color: #010101;">Alvin lePompier</td>
-                            <td>
-                                <input type="checkbox" id="presence1" />
-                                <label for="presence1"></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="color: #010101;">Alvin lePompier</td>
-                            <td>
-                                <input type="checkbox" id="test4" />
-                                <label for="test4"></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="color: #010101;">Alvin lePompier</td>
-                            <td>
+                            <td >Alvin</td>
+                            <td class="floatRight">
                                 <input type="checkbox" id="test7" />
                                 <label for="test7"></label>
                             </td>
@@ -180,65 +79,150 @@
         </div>
     </div>
 </div>
-<div class="card col l5 ">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxx   card   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<div class="card col l5  m12 s12 ">
     <div class="card-content">
-        <div class="col l4 offset-l1 valign-center">
+        <div class="col l4 s6 m4 offset-l1-m2 valign-center">
             <input type="button" class="waves-effect waves-light btn" value="Inter">
         </div>
-        <div class="col l4 offset-l1 valign-center">
+        <div class="col l4 s6 m4 offset-l1-m2 valign-center">
             <input type="button" class="waves-effect red btn" value="Fin inter">
         </div>
-        <div class="col l12">
+        <div class="col l12 m12 s12">
             <div class="row">
                 <table class="striped">
                     <thead>
                         <tr>
-                            <th style="color: #010101;">Noms</th>
-                            <th style="color: #010101;">P</th>
+                            <th >Noms</th>
+                            <th  class="floatRightP">P</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="color: #010101;">Alvin lePompier</td>
-                            <td>
+                            <td >Alvin lePompier</td>
+                            <td class="floatRight">
                                 <input type="checkbox" id="presence1" />
                                 <label for="presence1"></label>
                             </td>
                         </tr>
                         <tr>
-                            <td style="color: #010101;">Alvin lePompier</td>
-                            <td>
+                            <td >Alvin lePompier</td>
+                            <td class="floatRight">
                                 <input type="checkbox" id="test4" />
                                 <label for="test4"></label>
                             </td>
                         </tr>
                         <tr>
-                            <td style="color: #010101;">Alvin lePompier</td>
-                            <td>
+                            <td >Alvin lePompier</td>
+                            <td class="floatRight">
                                 <input type="checkbox" id="test7" />
                                 <label for="test7"></label>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                
-
-
-
-
             </div>
         </div>
     </div>
 </div>
 
-   <!--  <div class="col s3 offset-s1">
-        <div class="row" style="margin-top: 25%">
-            <div><p style="color: #010101;">Légende:</p></div>
-            <div> <span style="color: #008800;">P : Pompier présent</span></div>
-            <div> <span style="color: #ff0000">I : Pompier en cours d'intervention</span></div>
-            <span style="color: #c0C0C0">FI : Fin d'intervention du pompier</span> 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxx   card   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<div class="card col l5  m12 s12  offset-l2">
+    <div class="card-content">
+        <div class="col l4 s6 m4 offset-l1-m2 valign-center">
+            <input type="button" class="waves-effect waves-light btn" value="Inter">
         </div>
-    </div> -->
+        <div class="col l4 s6 m4 offset-l1-m2 valign-center">
+            <input type="button" class="waves-effect red btn" value="Fin inter">
+        </div>
+        <div class="col l12 m12 s12">
+            <div class="row">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th >Noms</th>
+                            <th class="floatRightP">P </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >Alvin lePompier</td>
+                            <td class="floatRight">
+                                <input type="checkbox" id="presence1" />
+                                <label for="presence1"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >Alvin lePompier</td>
+                            <td class="floatRight">
+                                <input type="checkbox" id="test4" />
+                                <label for="test4"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >Alvin lePompier</td>
+                            <td class="floatRight">
+                                <input type="checkbox" id="test7" />
+                                <label for="test7"></label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxx   card   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-    {% endblock %}
+<div class="card col l5 m12 s12 ">
+    <div class="card-content">
+        <div class="col l4 s6 m4 offset-l1-m2 valign-center">
+            <input type="button" class="waves-effect waves-light btn" value="Inter">
+        </div>
+        <div class="col l4 s6 m4 offset-l1-m2 valign-center">
+            <input type="button" class="waves-effect red btn" value="Fin inter">
+        </div>
+        <div class="col l12 m12 s12">
+            <div class="row">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th >Noms</th>
+                            <th class="floatRightP" >P</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >Alvin lePompier</td>
+                            <td class="floatRight">
+                                <input type="checkbox" id="presence1" />
+                                <label for="presence1"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >Alvin lePompier</td>
+                            <td class="floatRight">
+                                <input type="checkbox" id="test4" />
+                                <label for="test4"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >Alvin lePompier</td>
+                            <td class="floatRight">
+                                <input type="checkbox" id="test7" />
+                                <label for="test7"></label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

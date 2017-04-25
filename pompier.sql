@@ -89,6 +89,16 @@ CREATE TABLE `presence` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Structure de la table `pompierstoken`
+--
+
+CREATE TABLE IF NOT EXISTS `pompierstoken` (
+`id` int(11) NOT NULL,
+  `token` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+
+--
 -- Index pour les tables exportées
 --
 
@@ -110,6 +120,12 @@ ALTER TABLE `intervention`
 --
 ALTER TABLE `pompier`
   ADD PRIMARY KEY (`id`);
+  
+--
+-- Index pour la table `pompierstoken`
+--
+ALTER TABLE `pompierstoken`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `presence`
@@ -136,6 +152,12 @@ ALTER TABLE `intervention`
 --
 ALTER TABLE `pompier`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  
+--
+-- AUTO_INCREMENT pour la table `pompierstoken`
+--
+ALTER TABLE `pompierstoken`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `presence`
 --

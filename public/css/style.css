@@ -57,3 +57,12 @@ table.historique>tbody>tr:nth-child(2n+1) {
 .input-field{
     margin-top: 0;
 }
+
+.floatRight
+{
+    float: right;
+}
+.floatRightP{
+    float: right;
+    padding-right: 25px;
+}
