@@ -21,22 +21,50 @@
 		{% for entry in pompiers %}
 			<tr>
 				<td class="tableNoms"><span id="prenom">{{ entry.prenom }}</span> <span id="nom">{{ entry.nom }}</span></td>
-				<td><input type="checkbox" {% if entry.competence1 %}checked{% endif %} disabled id="cbox1a{{ entry.id }}" value="checkbox"><label for="cbox1a1" >
+				<td><input type="checkbox" {% if entry.competence1 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox1a{{ entry.id }}" value="checkbox"><label for="cbox1a1" >
 				</label></td>
-				<td><input type="checkbox" {% if entry.competence2 %}checked{% endif %} disabled id="cbox2a{{ entry.id }}" value="checkbox"><label for="cbox2a1">
+				<td><input type="checkbox" {% if entry.competence2 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox2a{{ entry.id }}" value="checkbox"><label for="cbox2a1">
 				</label></td>
-				<td><input type="checkbox" {% if entry.competence3 %}checked{% endif %} disabled id="cbox3a{{ entry.id }}" value="checkbox"><label for="cbox3a1">
+				<td><input type="checkbox" {% if entry.competence3 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox3a{{ entry.id }}" value="checkbox"><label for="cbox3a1">
 				</label></td>
-				<td><input type="checkbox" {% if entry.competence4 %}checked{% endif %} disabled id="cbox4a{{ entry.id }}" value="checkbox"><label for="cbox4a1">
+				<td><input type="checkbox" {% if entry.competence4 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox4a{{ entry.id }}" value="checkbox"><label for="cbox4a1">
 				</label></td>
-				<td><input type="checkbox" {% if entry.competence5 %}checked{% endif %} disabled id="cbox5a{{ entry.id }}" value="checkbox"><label for="cbox5a1">
+				<td><input type="checkbox" {% if entry.competence5 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox5a{{ entry.id }}" value="checkbox"><label for="cbox5a1">
 				</label></td>
-				<td><button id="modifier{{ entry.id }}" class="waves-effect waves-light btn">Modif</button></td>
+				<td><button id="modifier{{ entry.id }}" test="{{ entry.id }}" class="modificator waves-effect waves-light btn">Modif</button></td>
 				<td><button id="supprimer{{ entry.id }}" class="waves-effect red darken-1 btn" >Suppr</button></td>
 			</tr>
 			{% endfor %}
 			</tbody>
 		</table>
 	</div>
+<div id="ajoutPompier">
+     <h4 id="ajoutTitle">Ajouter un pompier</h4>
+     	<div style="overflow-x:auto;">
+			<table class="striped">
+				<thead>
+					<tr>
+						<th class="titleNoms">Noms/Matricule</th>
+						<th>C1</th>
+						<th>C2</th>
+						<th>C3</th>
+						<th>C4</th>
+						<th>C5</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="tableNoms col s12"><input placeholder="Nom" id="ajoutNom" type="text" class="validate col s3"><input placeholder="Prénom" id="ajoutPrenom" type="text" class="validate col s3 offset-s1"><input placeholder="Matricule" id="ajoutMatricule" type="text" class="validate col s3 offset-s1"></td>
+						<td><input type="checkbox" id="cbox1b1" value="cbox1b1"><label for="cbox1b1" ></label></td>
+						<td><input type="checkbox" id="cbox2b1" value="cbox2b1"><label for="cbox2b1"></label></td>
+						<td><input type="checkbox" id="cbox3b1" value="cbox3b1"><label for="cbox3b1"></label></td>
+						<td><input type="checkbox" id="cbox4b1" value="cbox4b1"><label for="cbox4b1"></label></td>
+						<td><input type="checkbox" id="cbox5b1" value="cbox5b1"><label for="cbox5b1"></label></td>
+						<td><button class="waves-effect waves-light btn" id="addButton">Ajouter</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 </div>
 {% endblock %}
