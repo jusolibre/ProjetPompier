@@ -109,6 +109,10 @@ $container[App\Api\TokenApi::class] = function ($c) {
     return new App\Api\TokenApi($c->get('view'), $c->get('logger'), $c);
 };
 
+$container[App\Api\InterApi::class] = function ($c) {
+    return new App\Api\InterApi($c->get('view'), $c->get('logger'), $c);
+};
+
 $container[App\Model\GetPompierModel::class] = function ($c) {
     return new App\Model\GetPompierModel($c->get('view'), $c->get('logger'), $c);
 };
