@@ -30,7 +30,7 @@
 <h2>La modification se passe ensuite en deux étapes : </h2>
 
 <h4>la premiere ou il faut cliquer sur le bouton "modif",</h4>
-![modif un](https://github.com/jusolibre/ProjetPompier/blob/master/utils/modif1.png)
+![modif un](https://github.com/jusolibre/ProjetPompier/tree/master/utils/modif1.png)
 
 <h4>Les checkbox deviennent alors cliquable, il suffit de cliquer sur enregistrer pour enregistrer la modification</h4>
 ![modif deux](https://github.com/jusolibre/ProjetPompier/blob/master/utils/modif2.png)
