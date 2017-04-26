@@ -6,6 +6,35 @@ switch (loca) {
         break;
 }
 
+function deleteUser() {
+    var elemId = ($(this).attr("id")).substr(9);
+    console.log(($(this).attr("id")).substr(9));
+    com = {};
+    com["id"] = elemId;
+    sendAjax("POST", "deletePompier", JSON.stringify(com), function(response) {
+        Materialize.toast((response.message == "ok" ? "Pompier a bien été supprimé!" : "Problème"), 4000);
+	if (response.message == "ok") {
+	    $("#pompier" + elemId).remove();
+	}
+    });
+}
+
+function deleteUserId() {
+    var elemId = ($(this).attr("id")).substr(9);
+    com = {};
+    com["id"] = elemId;
+    sendAjax("POST", "deletePompier", JSON.stringify(com), function(response) {
+        Materialize.toast((response.message == "ok" ? "Pompier a bien été supprimé!" : "Problème"), 4000);
+        if (response.message == "ok") {
+            $("#pompier" + elemId).remove();
+        }
+    });
+}
+
+$(".deleter").each(function(index) {
+    $(this).click(deleteUser);
+});
+
 $("#addButton").on('click', function(e) { // ajouter un pompier
     e.preventDefault();
     var com = {};
@@ -27,25 +56,43 @@ $("#addButton").on('click', function(e) { // ajouter un pompier
         com["matricule"] = matricule;
         sendAjax("POST", "addPompier", JSON.stringify(com), function(response) { // envoit des informations & récupération de la réponse par callback
             Materialize.toast((response.message == "ok" ? "Pompier a bien été ajouté!" : "Problème"), 4000);
+            if (response.message == "ok") {
+                sendAjax("GET", "getallpompier", "", function(response) {
+                    console.log(response);
+                    console.log(response[response.length - 1]);
+                    pompier = response[response.length - 1];
+                    $("#pompier").append(
+                        "<tr id='pompier" + pompier.id + "'>" +
+                        "<td class='tableNoms'>" +
+                        "<span id='modifier" +  pompier.id + "prenom'>" + pompier.prenom + " </span>" +
+                        "<span id='modifier" + pompier.id + "nom'>" + pompier.prenom + "</span></td>" +
+                        "<td><input type='checkbox'" + ((pompier.competence1 == 1) ? "checked " : "") +
+                        "class='modifier" + pompier.id + "btn-group' disabled id='cbox1a" + pompier.id + "'" +
+                        "value='checkbox'><label for='cbox1a{{ entry.id }}'></label></td>" +
+                        "<td><input type='checkbox'" + ((pompier.competence2 == 1) ? "checked " : "") +
+                        "class='modifier" + pompier.id + "btn-group' disabled id='cbox2a" + pompier.id + "'" +
+                        "value='checkbox'><label for='cbox2a" + pompier.id + "'></label></td>" +
+                        "<td><input type='checkbox' " + ((pompier.competence3 == 1) ? "checked " : "") +
+                        "class='modifier" + pompier.id + "btn-group' disabled id='cbox3a" + pompier.id + "'" +
+                        "value='checkbox'><label for='cbox3a" + pompier.id + "'>" +
+                        "</label></td><td><input type='checkbox' " + ((pompier.competence4 == 1) ? "checked " : "") +
+                        "class='modifier" + pompier.id + "btn-group' disabled id='cbox4a" + pompier.id + "' value='checkbox'>" +
+                        "<label for='cbox4a" + pompier.id + "'></label></td><td>" +
+                        "<input type='checkbox'" + ((pompier.competence5 == 1) ? "checked " : "") +
+                        "class='modifier" + pompier.id + "btn-group' disabled id='cbox5a" + pompier.id + "'" +
+                        "value='checkbox'><label for='cbox5a" + pompier.id + "'></label></td>" +
+                        "<td><button id='modifier" + pompier.id + "' class='modificator waves-effect waves-light btn'>" +
+                        "Modif</button></td><td><button id='supprimer" + pompier.id + "'" +
+                        "class='waves-effect red darken-1 btn deleter'>Suppr</button></td></tr>"
+                    );
+                    updateButton("#modifier" + pompier.id);
+                    $("#supprimer" + pompier.id).click(deleteUserId);
+                });
+
+            }
         });
     } else {
         Materialize.toast("Veuillez remplir tous les champs pour continuer.", 4000);
-    }
-});
-
-$("#supprimer").on('click', function(e) {
-    e.preventDefault();
-    var data = {};
-    var nom = $("#nom").text();
-    var prenom = $("#prenom").text();
-    if ((nom != "") && (prenom != "")) {
-        data = {
-            nom: nom,
-            prenom: prenom
-        }
-        sendAjax("POST", "deletePompier", JSON.stringify(data), function(response) {
-            Materialize.toast((response.message == "ok" ? "Pompier a bien été supprimé!" : "Impossible de supprimer un pompier qui n'existe pas."), 4000);
-        });
     }
 });
 

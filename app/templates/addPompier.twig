@@ -19,7 +19,7 @@
 		</thead>
 		<tbody id="pompier">
 		{% for entry in pompiers %}
-			<tr>
+			<tr id="pompier{{ entry.id }}">
 				<td class="tableNoms"><span id="modifier{{ entry.id }}prenom">{{ entry.prenom }}</span> <span id="modifier{{ entry.id }}nom">{{ entry.nom }}</span></td>
 				<td><input type="checkbox" {% if entry.competence1 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox1a{{ entry.id }}" value="checkbox"><label for="cbox1a{{ entry.id }}" >
 				</label></td>
@@ -32,7 +32,7 @@
 				<td><input type="checkbox" {% if entry.competence5 %}checked{% endif %} class="modifier{{ entry.id }}btn-group" disabled id="cbox5a{{ entry.id }}" value="checkbox"><label for="cbox5a{{ entry.id }}">
 				</label></td>
 				<td><button id="modifier{{ entry.id }}" test="{{ entry.id }}" class="modificator waves-effect waves-light btn">Modif</button></td>
-				<td><button id="supprimer{{ entry.id }}" class="waves-effect red darken-1 btn" >Suppr</button></td>
+				<td><button id="supprimer{{ entry.id }}" class="waves-effect red darken-1 btn deleter">Suppr</button></td>
 			</tr>
 			{% endfor %}
 			</tbody>

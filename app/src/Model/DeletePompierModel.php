@@ -23,8 +23,8 @@ final class DeletePompierModel
     {
         $data = $request->getBody();
         $json = json_decode($data, true);
-        if ((isset($json["nom"]) && (isset($json["prenom"])))) {
-            $action = $this->controller[\App\Model\Requester::class]->deletePompier($json["nom"], $json["prenom"]);
+        if (isset($json["id"])) {
+            $action = $this->controller[\App\Model\Requester::class]->deletePompier($json["id"]);
         }
     }
 }

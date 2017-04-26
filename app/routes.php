@@ -7,9 +7,9 @@ $app->get('/presences', App\Action\PresencesAction::class);
 
 $app->get('/addPompier', App\Action\AddPompierAction::class);
 
-$app->get('/deletePompier', App\Action\DeletePompierAction::class);
-
 $app->get('/historique', App\Action\HistoriqueAction::class);
+
+$app->post('/deletePompier', App\Model\DeletePompierModel::class);
 
 $app->post('/addPompier', App\Model\AddPompierModel::class);
 
@@ -28,5 +28,3 @@ $app->post('/token', App\Api\TokenApi::class);
 $app->post('/inter', App\Api\InterApi::class);
 
 $app->get('/getallpompier', App\Model\GetPompierModel::class);
-
-$app->post('/deletePompier', App\Model\DeletePompierModel::class);

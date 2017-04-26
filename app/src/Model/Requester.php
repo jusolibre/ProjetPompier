@@ -90,21 +90,13 @@ final class Requester
         ]);
     }
 
-    public function deletePompier($nom, $prenom) {
-        $search = $this->selectPompierFromName($nom, $prenom);
-        if (!is_array($search)) {
-            return print json_encode([
-                "error" => true,
-                "message" => "fail"
-            ]);
-        }
-        $query = $this->pdo->prepare("DELETE FROM pompier where nom = :nom and prenom = :prenom");
-        $query->bindParam(":nom", $nom);
-        $query->bindParam(":prenom", $prenom);
+    public function deletePompier($id) {
+        $query = $this->pdo->prepare("DELETE FROM pompier where id = :id");
+        $query->bindParam(":id", $id);
         $ret = $query->execute();
         return print $ret == false ? json_encode([
             "error" => true,
-            "message" => "fail"
+            "message" => "delete failed"
         ]) : json_encode([
             "error" => false,
             "message" => "ok"

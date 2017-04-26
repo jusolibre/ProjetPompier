@@ -35,6 +35,10 @@ function enregistrerButton() {
     console.log(this);
 }
 
+function updateButton(id) {
+    $(id).click(enregistrerButton);
+}
+
 $(".modificator").each(function(index) {
     $(this).click(enregistrerButton);
 });
