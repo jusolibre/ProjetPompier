@@ -30,12 +30,12 @@
 <h2>La modification se passe ensuite en deux étapes : </h2>
 
 <h4>la premiere ou il faut cliquer sur le bouton "modif",</h4>
-[[https://github.com/jusolibre/ProjetPompier/blob/master/utils/modif1.png|alt=modif]]
+![modif 1](https://github.com/jusolibre/ProjetPompier/blob/master/utils/modif1.png)
 
 <h4>Les checkbox deviennent alors cliquable, il suffit de cliquer sur enregistrer pour enregistrer la modification</h4>
-[[https://github.com/jusolibre/ProjetPompier/blob/master/utils/modif2.png|alt=modif]]
+![modif 2](https://github.com/jusolibre/ProjetPompier/blob/master/utils/modif2.png)
 
 
 <h2>La suppression s'effectue ensuite simplement en cliquant sur le bouton supprimer du pompier associé, attention aucune confirmation ne sera demander !  </h2>
 
-[[https://github.com/jusolibre/ProjetPompier/blob/master/utils/delete.png|alt=delete]]
+![delete](https://github.com/jusolibre/ProjetPompier/blob/master/utils/delete.png)
