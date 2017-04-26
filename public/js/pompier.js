@@ -13,8 +13,8 @@ $("#addButton").on('click', function(e) { // ajouter un pompier
     var prenom = $("#ajoutPrenom").val();
     var matricule = $("#ajoutMatricule").val();
     if (nom != "" && prenom != "" && matricule != "") { // la personne a défini un nom donc on continue
-        $("input:checkbox[type=checkbox]:checked").each(function() { // parcours des compétences qui ont été coché..
-            var competence = $(this).val().split("cbox")[1].split("b")[0];
+        $(".adder:checked").each(function() { // parcours des compétences qui ont été coché..
+	    var competence = $(this).val().split("cbox")[1].split("b")[0];
             if (!isNaN(competence)) { // on sauvegarde que les compétences "numérique" !
                 var compet = 'competence' + competence;
                 com[compet] = 1;
