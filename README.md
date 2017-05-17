@@ -16,12 +16,12 @@
     <li>En cours</li>
 </ul>
 
-<h2 id="ajout">Ajout d'un pompier</h2>
+<h1 id="ajout">Ajout d'un pompier</h1>
 <p>Pour ajouter un pompier, veuillez à bien remplir tous les différents champs de la zone d'ajout comme indiqué sur l'image ci-dessous.</p>
 
 ![add image](https://github.com/jusolibre/ProjetPompier/blob/master/utils/add.png)
 
-<h2 id="modif">Modification d'un pompier</h2>
+<h1 id="modif">Modification d'un pompier</h1>
 <p>La modification d'un pompier se passe en deux étapes: </p>
 <p>En premier temps, sélectionnez un pompier ou plusieurs pompiers (C'est possible oui), puis cliquez sur "Modif" au bout de sa ligne comme indiqué sur l'image ci-dessous:</p>
 
@@ -31,7 +31,7 @@
 
 ![add image](http://i.imgur.com/fLiHOSn.png)
 
-<h2 id="supp">Suppression d'un pompier</h2>
+<h1 id="supp">Suppression d'un pompier</h1>
 <p>La suppression d'un pompier s'effectue simplement en cliquant sur le bouton "suppr" (supprimer) mais attention, un seul clique suffit pour le supprimer. Vous n'aurez pas de confirmation en cliquant dessus; c'est définitif.</p>
 
 ![delete](https://github.com/jusolibre/ProjetPompier/blob/master/utils/delete.png)
