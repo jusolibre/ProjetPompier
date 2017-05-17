@@ -13,7 +13,8 @@
 </ul>
 <p>Et voici ce que vous avez besoin pour le bon fonctionnement.</p>
 <ul>
-    <li>En cours</li>
+    <li><a href="//php.net">PHP >= 5.6</a></li>
+    <li><a href="https://doc.ubuntu-fr.org/lamp">Lamp (Linux)</a> ou <a href="https://www.apachefriends.org/fr/index.html">xampp (Windows)</a></li>
 </ul>
 
 <h1 id="ajout">Ajout d'un pompier</h1>
