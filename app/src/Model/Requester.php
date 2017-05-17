@@ -20,6 +20,45 @@ final class Requester
     {        
         return $this->pdo;
     }
+
+    public function confirmInter($rep, $matricule, $id = 1) {
+		$reponse = [
+            "oui" => 1
+        ];
+		$confirm = $this->selectPompierByMatricule($matricule);
+        $info = $this->getRoomInfoById($id);
+        $count = $this->getInterById($id);
+        if ($this->getInterByMatricule($matricule, $id) > 0) {
+            return print json_encode([
+				"error" => false,
+				"message" => "Vous avez déjà envoyé votre demande pour cette intervention!",
+				"color" => "#ff0000"
+			]);
+        } else if (!empty($confirm)) {
+			$query = $this->pdo->prepare("UPDATE pompier SET disponibilite = :dp WHERE matricule = :mat");
+			$query->bindParam(':dp', $reponse[$rep]);
+			$query->bindParam(':mat', $matricule);
+			$query->execute();
+            if ($count >= $info[0]["nombre_requis"]) {
+                return print json_encode([
+				    "error" => false,
+				    "message" => "Vous avez été mis comme disponible pour une prochaine intervention.",
+				    "color" => "#f29704"
+			    ]);
+            }
+			return print json_encode([
+				"error" => false,
+				"message" => "OK",
+				"color" => "#373737"
+			]);
+		} else {
+			return print json_encode([
+				"error" => true,
+				"message" => "Not found",
+				"color" => NULL
+			]);
+		}
+	}
 	
     public function saveToken($token) {
 		$query = $this->pdo->prepare("SELECT * FROM pompierstoken WHERE token = :token");
@@ -172,7 +211,13 @@ final class Requester
             }
         }
         $ret = $query->execute();
-        return print $ret == false ? json_encode(["error" => true, "message" => "fail"]) : json_encode(["error" => false, "message" => "ok"]);
+        return print $ret == false ? json_encode([
+            "error" => true, 
+            "message" => "fail"
+        ]) : json_encode([
+            "error" => false, 
+            "message" => "ok"
+        ]);
     }
 
     public function addRoom($nom, $places, $vehicule) {
@@ -204,7 +249,6 @@ final class Requester
         
     public function selectRoom($id) {
         $request = "SELECT * FROM intervention where id = :id";
-
         $query = $this->pdo->prepare($request);
         $query->bindParam(':id', $id);
         $query->execute();
