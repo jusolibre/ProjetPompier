@@ -8,8 +8,8 @@
     <li><a href="#ajout">Ajout de pompier</a></li>
     <li><a href="#modif">Modification d'un pompier</a></li>
     <li><a href="#supp">Suppression d'un pompier</a></li>
-    <li><a href="#pres">Tableau de présences</a></li>
-    <li><a href="#histo">Historique des interventions</a></li>
+    <li><a href="#pres">Consultation des présences</a></li>
+    <li><a href="#histo">Consultation de l'historique des interventions</a></li>
 </ul>
 <p>Et voici ce que vous avez besoin pour le bon fonctionnement.</p>
 <ul>
