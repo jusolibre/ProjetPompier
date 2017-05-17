@@ -38,6 +38,6 @@
 ![add image](http://i.imgur.com/fLiHOSn.png)
 
 <h2>Suppression d'un pompier</h2>
-<p>La suppression d'un pompier s'effectue somplement en cliquant sur le bouton "suppr" (supprimer) mais attention, un seul clique suffit pour le supprimer. Vous n'aurez pas de confirmation en cliquant dessus; c'est définitif.</p>
+<p>La suppression d'un pompier s'effectue simplement en cliquant sur le bouton "suppr" (supprimer) mais attention, un seul clique suffit pour le supprimer. Vous n'aurez pas de confirmation en cliquant dessus; c'est définitif.</p>
 
 ![delete](https://github.com/jusolibre/ProjetPompier/blob/master/utils/delete.png)
