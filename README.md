@@ -21,7 +21,7 @@
 
 <h2 id="modif">Modification d'un pompier</h2>
 <p>La modification d'un pompier se passe en deux étapes: </p>
-<p>En premier temps, sélectionnez un pompier, puis cliquez sur "Modif" au bout de sa ligne comme indiqué sur l'image ci-dessous:</p>
+<p>En premier temps, sélectionnez un pompier ou plusieurs pompiers (C'est possible oui), puis cliquez sur "Modif" au bout de sa ligne comme indiqué sur l'image ci-dessous:</p>
 
 <img src="http://i.imgur.com/hReGhZQ.png" alt="Modif" />
 
