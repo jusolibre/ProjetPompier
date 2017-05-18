@@ -65,7 +65,7 @@ $("#addButton").on('click', function(e) { // ajouter un pompier
                         "<tr id='pompier" + pompier.id + "'>" +
                         "<td class='tableNoms'>" +
                         "<span id='modifier" +  pompier.id + "prenom'>" + pompier.prenom + " </span>" +
-                        "<span id='modifier" + pompier.id + "nom'>" + pompier.prenom + "</span></td>" +
+                        "<span id='modifier" + pompier.id + "nom'>" + pompier.nom + "</span></td>" +
                         "<td><input type='checkbox'" + ((pompier.competence1 == 1) ? "checked " : "") +
                         "class='modifier" + pompier.id + "btn-group' disabled id='cbox1a" + pompier.id + "'" +
                         "value='checkbox'><label for='cbox1a{{ entry.id }}'></label></td>" +
